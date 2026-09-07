@@ -1,0 +1,775 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UniFlow - Study Hub</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --emeris-dark: #234b54;
+            --emeris-dark-2: #1b3d45;
+            --emeris-green: #9fc58b;
+            --emeris-green-pale: #eef6e9;
+            --background: #f4f7f5;
+            --surface: #ffffff;
+            --text: #183038;
+            --muted: #728086;
+            --border: #dfe7e2;
+            --shadow: 0 10px 30px rgba(31, 63, 71, 0.08);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 255px;
+            min-height: 100vh;
+            background: linear-gradient( 160deg, var(--emeris-dark), var(--emeris-dark-2) );
+            color: white;
+            padding: 28px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        .brand {
+            margin-bottom: 40px;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: var(--emeris-green);
+            color: var(--emeris-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .brand h1 {
+            font-size: 25px;
+        }
+
+        .brand p {
+            color: #c7d7d2;
+            font-size: 12px;
+            margin-left: 52px;
+        }
+
+        .nav-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            color: #92aaa4;
+            margin: 25px 10px 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 14px;
+            margin-bottom: 7px;
+            border-radius: 12px;
+            color: #e8f0ed;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+            .nav-item:hover {
+                background: rgba(255,255,255,0.08);
+            }
+
+            .nav-item.active {
+                background: var(--emeris-green);
+                color: var(--emeris-dark);
+                font-weight: bold;
+            }
+
+        .nav-icon {
+            width: 22px;
+            text-align: center;
+        }
+
+        .student-card {
+            position: absolute;
+            bottom: 24px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.08);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+            .student-card strong {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            .student-card span {
+                color: #c7d7d2;
+                font-size: 12px;
+            }
+
+        /* MAIN */
+
+        .main {
+            margin-left: 255px;
+            width: calc(100% - 255px);
+            padding: 32px 38px 45px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .page-heading h2 {
+            font-size: 30px;
+            margin-bottom: 6px;
+        }
+
+        .page-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .profile-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--emeris-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* HERO */
+
+        .study-hero {
+            background: linear-gradient( 135deg, var(--emeris-dark) 0%, var(--emeris-dark) 68%, var(--emeris-green) 68% );
+            color: white;
+            border-radius: 20px;
+            padding: 26px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+
+            .study-hero h3 {
+                font-size: 25px;
+                margin-bottom: 8px;
+            }
+
+            .study-hero p {
+                color: #dce7e4;
+                max-width: 550px;
+                line-height: 1.5;
+                font-size: 14px;
+            }
+
+        /* GRID */
+
+        .study-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .panel-header h3 {
+                font-size: 18px;
+            }
+
+        /* MODULE CARDS */
+
+        .module-card {
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 17px;
+            margin-bottom: 14px;
+        }
+
+            .module-card:last-child {
+                margin-bottom: 0;
+            }
+
+        .module-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 13px;
+        }
+
+        .module-name h4 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .module-name p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .percent {
+            font-weight: bold;
+            color: var(--emeris-dark);
+        }
+
+        .progress-track {
+            height: 8px;
+            border-radius: 999px;
+            background: #edf1ef;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--emeris-green);
+            border-radius: 999px;
+        }
+
+        .w75 {
+            width: 75%;
+        }
+
+        .w60 {
+            width: 60%;
+        }
+
+        .w40 {
+            width: 40%;
+        }
+
+        /* TOPICS */
+
+        .topic-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .topic {
+            background: #f8faf8;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+            .topic.completed {
+                background: var(--emeris-green-pale);
+            }
+
+        .topic-status {
+            color: var(--muted);
+        }
+
+        /* STUDY SESSION */
+
+        .study-card {
+            background: var(--emeris-green-pale);
+            border: 1px solid #d8e8d2;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 18px;
+        }
+
+            .study-card h4 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+
+            .study-card p {
+                font-size: 13px;
+                color: var(--muted);
+                line-height: 1.5;
+            }
+
+        .start-button {
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 11px;
+            padding: 12px;
+            margin-top: 16px;
+            background: var(--emeris-dark);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* PLAN */
+
+        .plan-item {
+            display: flex;
+            gap: 13px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+            .plan-item:last-child {
+                border-bottom: none;
+            }
+
+        .time {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--emeris-dark);
+            min-width: 50px;
+        }
+
+        .plan-info h4 {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .plan-info p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        @media(max-width: 1000px) {
+            .study-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-mark">
+
+                    <div class="brand-icon">
+                        U
+                    </div>
+
+                    <h1>UniFlow</h1>
+
+                </div>
+
+                <p>Student command centre</p>
+
+            </div>
+
+            <div class="nav-label">
+                Workspace
+            </div>
+
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                Dashboard
+            </a>
+
+            <a href="assignments.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                Assignments
+            </a>
+
+            <a href="studyhub.html" class="nav-item active">
+                <span class="nav-icon">◫</span>
+                Study Hub
+            </a>
+
+            <a href="modules.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                Modules
+            </a>
+
+            <a href="progress.html" class="nav-item">
+                <span class="nav-icon">◔</span>
+                Progress
+            </a>
+
+
+            <div class="student-card">
+                <strong>Student</strong>
+                <span>Year 2 • Academic Dashboard</span>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="main">
+
+            <div class="topbar">
+
+                <div class="page-heading">
+
+                    <h2>Study Hub</h2>
+
+                    <p>
+                        Track what you know, what still needs work,
+                        and what to study next.
+                    </p>
+
+                </div>
+
+                <div class="profile-circle">
+                    K
+                </div>
+
+            </div>
+
+            <!-- HERO -->
+
+            <section class="study-hero">
+
+                <h3>
+                    Make your study time count.
+                </h3>
+
+                <p>
+                    Keep track of your module topics, see your current
+                    progress, and organise focused study sessions around
+                    the areas that still need attention.
+                </p>
+
+            </section>
+
+            <!-- MAIN GRID -->
+
+            <section class="study-grid">
+
+                <!-- LEFT -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+                            My Modules
+                        </h3>
+
+                        <span style="font-size:12px;color:#728086;">
+                            Study progress
+                        </span>
+
+                    </div>
+
+                    <!-- PROGRAMMING -->
+
+                    <div class="module-card">
+
+                        <div class="module-top">
+
+                            <div class="module-name">
+
+                                <h4>
+                                    Programming
+                                </h4>
+
+                                <p>
+                                    6 of 8 topics completed
+                                </p>
+
+                            </div>
+
+                            <span class="percent">
+                                75%
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill w75"></div>
+                        </div>
+
+                        <div class="topic-list">
+
+                            <div class="topic completed">
+                                <span>Classes & Objects</span>
+                                <span>✓</span>
+                            </div>
+
+                            <div class="topic completed">
+                                <span>Inheritance</span>
+                                <span>✓</span>
+                            </div>
+
+                            <div class="topic">
+                                <span>File Handling</span>
+                                <span class="topic-status">Study</span>
+                            </div>
+
+                            <div class="topic">
+                                <span>Exceptions</span>
+                                <span class="topic-status">Study</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- DATABASE -->
+
+                    <div class="module-card">
+
+                        <div class="module-top">
+
+                            <div class="module-name">
+
+                                <h4>
+                                    Database Development
+                                </h4>
+
+                                <p>
+                                    3 of 5 topics completed
+                                </p>
+
+                            </div>
+
+                            <span class="percent">
+                                60%
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill w60"></div>
+                        </div>
+
+                        <div class="topic-list">
+
+                            <div class="topic completed">
+                                <span>SELECT Queries</span>
+                                <span>✓</span>
+                            </div>
+
+                            <div class="topic completed">
+                                <span>Relationships</span>
+                                <span>✓</span>
+                            </div>
+
+                            <div class="topic">
+                                <span>Stored Procedures</span>
+                                <span class="topic-status">Study</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- CLOUD -->
+
+                    <div class="module-card">
+
+                        <div class="module-top">
+
+                            <div class="module-name">
+
+                                <h4>
+                                    Cloud Development
+                                </h4>
+
+                                <p>
+                                    2 of 5 topics completed
+                                </p>
+
+                            </div>
+
+                            <span class="percent">
+                                40%
+                            </span>
+
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill w40"></div>
+                        </div>
+
+                        <div class="topic-list">
+
+                            <div class="topic completed">
+                                <span>Storage Accounts</span>
+                                <span>✓</span>
+                            </div>
+
+                            <div class="topic">
+                                <span>Azure Functions</span>
+                                <span class="topic-status">Study</span>
+                            </div>
+
+                            <div class="topic">
+                                <span>REST APIs</span>
+                                <span class="topic-status">Study</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div>
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+                            <h3>Start Studying</h3>
+                        </div>
+
+                        <div class="study-card">
+
+                            <h4>
+                                Recommended Topic
+                            </h4>
+
+                            <p>
+                                File Handling in Programming is currently
+                                one of your incomplete topics and relates
+                                to your highest-priority assignment.
+                            </p>
+
+                            <button class="start-button">
+                                Start Study Session
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="panel" style="margin-top:22px;">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Today's Study Plan
+                            </h3>
+
+                        </div>
+
+                        <div class="plan-item">
+
+                            <div class="time">
+                                09:00
+                            </div>
+
+                            <div class="plan-info">
+
+                                <h4>
+                                    Programming
+                                </h4>
+
+                                <p>
+                                    File Handling • 45 minutes
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="plan-item">
+
+                            <div class="time">
+                                10:00
+                            </div>
+
+                            <div class="plan-info">
+
+                                <h4>
+                                    Programming POE
+                                </h4>
+
+                                <p>
+                                    Assignment work • 1 hour
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="plan-item">
+
+                            <div class="time">
+                                11:30
+                            </div>
+
+                            <div class="plan-info">
+
+                                <h4>
+                                    Database Development
+                                </h4>
+
+                                <p>
+                                    Stored Procedures • 30 minutes
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
