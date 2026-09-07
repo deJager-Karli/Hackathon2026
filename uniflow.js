@@ -2176,7 +2176,7 @@ function getStudyProgressData() {
 
 function getStudyHubData() {
 
-   totals.
+
    
 
     const allAssignments =
