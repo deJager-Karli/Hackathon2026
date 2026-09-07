@@ -1,12 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>UniFlow - Study Hub</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +28,12 @@
             --text: #183038;
             --muted: #728086;
             --border: #dfe7e2;
+            --success-bg: #e4f2dc;
+            --success-text: #4e7c42;
+            --warning-bg: #fff0d8;
+            --warning-text: #9b651e;
+            --danger-bg: #fde6e3;
+            --danger-text: #a23b32;
             --shadow: 0 10px 30px rgba(31, 63, 71, 0.08);
         }
 
@@ -38,7 +49,7 @@
             min-height: 100vh;
         }
 
-        /* SIDEBAR */
+       
 
         .sidebar {
             width: 255px;
@@ -141,7 +152,7 @@
                 font-size: 12px;
             }
 
-        /* MAIN */
+    
 
         .main {
             margin-left: 255px;
@@ -178,14 +189,14 @@
             font-weight: bold;
         }
 
-        /* HERO */
+      
 
         .study-hero {
             background: linear-gradient( 135deg, var(--emeris-dark) 0%, var(--emeris-dark) 68%, var(--emeris-green) 68% );
             color: white;
             border-radius: 20px;
             padding: 26px;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
             box-shadow: var(--shadow);
         }
 
@@ -196,16 +207,43 @@
 
             .study-hero p {
                 color: #dce7e4;
-                max-width: 550px;
+                max-width: 600px;
                 line-height: 1.5;
                 font-size: 14px;
             }
 
-        /* GRID */
+  
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+        }
+
+            .stat-card strong {
+                display: block;
+                font-size: 27px;
+                margin-bottom: 4px;
+            }
+
+            .stat-card span {
+                color: var(--muted);
+                font-size: 12px;
+            }
+
 
         .study-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
+            grid-template-columns: 1.45fr 1fr;
             gap: 22px;
         }
 
@@ -216,6 +254,10 @@
             padding: 22px;
             box-shadow: var(--shadow);
         }
+
+            .panel + .panel {
+                margin-top: 22px;
+            }
 
         .panel-header {
             display: flex;
@@ -228,37 +270,42 @@
                 font-size: 18px;
             }
 
-        /* MODULE CARDS */
+            .panel-header span {
+                color: var(--muted);
+                font-size: 11px;
+            }
 
-        .module-card {
+        .course-card {
             border: 1px solid var(--border);
             border-radius: 15px;
             padding: 17px;
             margin-bottom: 14px;
         }
 
-            .module-card:last-child {
+            .course-card:last-child {
                 margin-bottom: 0;
             }
 
-        .module-top {
+        .course-top {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             gap: 15px;
             margin-bottom: 13px;
         }
 
-        .module-name h4 {
+        .course-name h4 {
             font-size: 15px;
             margin-bottom: 5px;
         }
 
-        .module-name p {
+        .course-name p {
             color: var(--muted);
-            font-size: 12px;
+            font-size: 11px;
         }
 
-        .percent {
+        .course-percent {
+            font-size: 18px;
             font-weight: bold;
             color: var(--emeris-dark);
         }
@@ -268,7 +315,7 @@
             border-radius: 999px;
             background: #edf1ef;
             overflow: hidden;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
         }
 
         .progress-fill {
@@ -277,121 +324,228 @@
             border-radius: 999px;
         }
 
-        .w75 {
-            width: 75%;
-        }
-
-        .w60 {
-            width: 60%;
-        }
-
-        .w40 {
-            width: 40%;
-        }
-
-        /* TOPICS */
-
-        .topic-list {
+        .course-meta {
             display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
         }
 
-        .topic {
-            background: #f8faf8;
-            border: 1px solid var(--border);
+        .meta-box {
+            background: var(--emeris-green-pale);
             border-radius: 10px;
-            padding: 10px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
+            padding: 10px;
+            text-align: center;
         }
 
-            .topic.completed {
-                background: var(--emeris-green-pale);
+            .meta-box strong {
+                display: block;
+                font-size: 13px;
+                margin-bottom: 3px;
             }
 
-        .topic-status {
-            color: var(--muted);
-        }
+            .meta-box span {
+                color: var(--muted);
+                font-size: 10px;
+            }
 
-        /* STUDY SESSION */
 
-        .study-card {
+        .focus-card {
             background: var(--emeris-green-pale);
             border: 1px solid #d8e8d2;
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 18px;
+            padding: 19px;
         }
 
-            .study-card h4 {
-                font-size: 18px;
-                margin-bottom: 8px;
+        .focus-label {
+            display: inline-block;
+            background: var(--emeris-dark);
+            color: white;
+            padding: 5px 9px;
+            border-radius: 999px;
+            font-size: 10px;
+            margin-bottom: 12px;
+        }
+
+        .focus-card h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .focus-card p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .focus-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 13px;
+        }
+
+        .pill {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 6px 9px;
+            border-radius: 999px;
+            font-size: 10px;
+        }
+
+        .completion-reminder {
+            margin-top: 14px;
+            padding: 11px;
+            border-radius: 10px;
+            background: var(--warning-bg);
+            color: var(--warning-text);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 6px;
+                font-size: 12px;
+                font-weight: bold;
             }
 
-            .study-card p {
-                font-size: 13px;
-                color: var(--muted);
-                line-height: 1.5;
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 11px 12px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                background: #fbfcfb;
+                color: var(--text);
+                font-family: inherit;
             }
 
-        .start-button {
-            display: block;
+                .form-group input:focus,
+                .form-group select:focus,
+                .form-group textarea:focus {
+                    outline: none;
+                    border-color: var(--emeris-green);
+                    box-shadow: 0 0 0 3px rgba(159,197,139,0.18);
+                }
+
+        textarea {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        .study-button {
             width: 100%;
             border: none;
             border-radius: 11px;
             padding: 12px;
-            margin-top: 16px;
             background: var(--emeris-dark);
             color: white;
             font-weight: bold;
             cursor: pointer;
         }
 
-        /* PLAN */
+            .study-button:hover {
+                background: var(--emeris-dark-2);
+            }
 
-        .plan-item {
-            display: flex;
-            gap: 13px;
-            padding: 13px 0;
+
+        .session-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            padding: 14px 0;
             border-bottom: 1px solid var(--border);
         }
 
-            .plan-item:last-child {
+            .session-item:last-child {
                 border-bottom: none;
             }
 
-        .time {
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--emeris-dark);
-            min-width: 50px;
-        }
-
-        .plan-info h4 {
+        .session-info h4 {
             font-size: 13px;
             margin-bottom: 4px;
         }
 
-        .plan-info p {
+        .session-info p {
             color: var(--muted);
             font-size: 11px;
+            line-height: 1.5;
         }
 
-        @media(max-width: 1000px) {
+        .session-right {
+            text-align: right;
+        }
+
+        .session-hours {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--emeris-dark);
+            margin-bottom: 7px;
+        }
+
+        .delete-session-button {
+            border: 1px solid #efcbc6;
+            background: var(--danger-bg);
+            color: var(--danger-text);
+            border-radius: 8px;
+            padding: 6px 8px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .empty-message {
+            color: var(--muted);
+            font-size: 13px;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        @media(max-width: 1100px) {
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .study-grid {
                 grid-template-columns: 1fr;
             }
         }
+
+        @media(max-width: 760px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
+
 </head>
 
 <body>
 
     <div class="app">
 
-        <!-- SIDEBAR -->
+        <!-- =========================================
+             SIDEBAR
+        ========================================== -->
 
         <aside class="sidebar">
 
@@ -403,11 +557,15 @@
                         U
                     </div>
 
-                    <h1>UniFlow</h1>
+                    <h1>
+                        UniFlow
+                    </h1>
 
                 </div>
 
-                <p>Student command centre</p>
+                <p>
+                    Student command centre
+                </p>
 
             </div>
 
@@ -415,52 +573,68 @@
                 Workspace
             </div>
 
-            <a href="index.html" class="nav-item">
+            <a href="index.html"
+               class="nav-item">
                 <span class="nav-icon">⌂</span>
                 Dashboard
             </a>
 
-            <a href="assignments.html" class="nav-item">
+            <a href="assignments.html"
+               class="nav-item">
                 <span class="nav-icon">▤</span>
                 Assignments
             </a>
 
-            <a href="studyhub.html" class="nav-item active">
+            <a href="studyhub.html"
+               class="nav-item active">
                 <span class="nav-icon">◫</span>
                 Study Hub
             </a>
 
-            <a href="modules.html" class="nav-item">
+            <a href="modules.html"
+               class="nav-item">
                 <span class="nav-icon">▦</span>
                 Modules
             </a>
 
-            <a href="progress.html" class="nav-item">
+            <a href="progress.html"
+               class="nav-item">
                 <span class="nav-icon">◔</span>
                 Progress
             </a>
 
-
             <div class="student-card">
-                <strong>Student</strong>
-                <span>Year 2 • Academic Dashboard</span>
+
+                <strong>
+                    Student
+                </strong>
+
+                <span>
+                    Year 2 • Academic Dashboard
+                </span>
+
             </div>
 
         </aside>
 
-        <!-- MAIN -->
+        <!-- =========================================
+             MAIN
+        ========================================== -->
 
         <main class="main">
+
+            <!-- TOP -->
 
             <div class="topbar">
 
                 <div class="page-heading">
 
-                    <h2>Study Hub</h2>
+                    <h2>
+                        Study Hub
+                    </h2>
 
                     <p>
-                        Track what you know, what still needs work,
-                        and what to study next.
+                        Track study time without confusing effort with completion.
                     </p>
 
                 </div>
@@ -480,182 +654,113 @@
                 </h3>
 
                 <p>
-                    Keep track of your module topics, see your current
-                    progress, and organise focused study sessions around
-                    the areas that still need attention.
+                    Log focused work against your assignments.
+                    UniFlow tracks how much of the estimated workload
+                    you have covered, while you remain in control of
+                    when an assignment is actually marked complete.
                 </p>
 
             </section>
 
-            <!-- MAIN GRID -->
+            <!-- STATS -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <strong id="totalStudyHours">
+                        0
+                    </strong>
+
+                    <span>
+                        Hours Studied
+                    </span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <strong id="remainingHours">
+                        0
+                    </strong>
+
+                    <span>
+                        Estimated Hours Remaining
+                    </span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <strong id="overallStudyProgress">
+                        0%
+                    </strong>
+
+                    <span>
+                        Study Work Completed
+                    </span>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <strong id="completedAssignments">
+                        0
+                    </strong>
+
+                    <span>
+                        Manually Completed Assignments
+                    </span>
+
+                </div>
+
+            </section>
+
+            <!-- CONTENT -->
 
             <section class="study-grid">
 
                 <!-- LEFT -->
 
-                <div class="panel">
+                <div>
 
-                    <div class="panel-header">
+                    <!-- MODULE PROGRESS -->
 
-                        <h3>
-                            My Modules
-                        </h3>
+                    <div class="panel">
 
-                        <span style="font-size:12px;color:#728086;">
-                            Study progress
-                        </span>
+                        <div class="panel-header">
 
-                    </div>
+                            <h3>
+                                Module Progress
+                            </h3>
 
-                    <!-- PROGRAMMING -->
-
-                    <div class="module-card">
-
-                        <div class="module-top">
-
-                            <div class="module-name">
-
-                                <h4>
-                                    Programming
-                                </h4>
-
-                                <p>
-                                    6 of 8 topics completed
-                                </p>
-
-                            </div>
-
-                            <span class="percent">
-                                75%
+                            <span>
+                                Based on completed assignments
                             </span>
 
                         </div>
 
-                        <div class="progress-track">
-                            <div class="progress-fill w75"></div>
-                        </div>
-
-                        <div class="topic-list">
-
-                            <div class="topic completed">
-                                <span>Classes & Objects</span>
-                                <span>✓</span>
-                            </div>
-
-                            <div class="topic completed">
-                                <span>Inheritance</span>
-                                <span>✓</span>
-                            </div>
-
-                            <div class="topic">
-                                <span>File Handling</span>
-                                <span class="topic-status">Study</span>
-                            </div>
-
-                            <div class="topic">
-                                <span>Exceptions</span>
-                                <span class="topic-status">Study</span>
-                            </div>
-
-                        </div>
+                        <div id="courseProgressList"></div>
 
                     </div>
 
-                    <!-- DATABASE -->
+                    <!-- SESSIONS -->
 
-                    <div class="module-card">
+                    <div class="panel">
 
-                        <div class="module-top">
+                        <div class="panel-header">
 
-                            <div class="module-name">
+                            <h3>
+                                Recent Study Sessions
+                            </h3>
 
-                                <h4>
-                                    Database Development
-                                </h4>
-
-                                <p>
-                                    3 of 5 topics completed
-                                </p>
-
-                            </div>
-
-                            <span class="percent">
-                                60%
+                            <span>
+                                Delete incorrect entries if needed
                             </span>
 
                         </div>
 
-                        <div class="progress-track">
-                            <div class="progress-fill w60"></div>
-                        </div>
-
-                        <div class="topic-list">
-
-                            <div class="topic completed">
-                                <span>SELECT Queries</span>
-                                <span>✓</span>
-                            </div>
-
-                            <div class="topic completed">
-                                <span>Relationships</span>
-                                <span>✓</span>
-                            </div>
-
-                            <div class="topic">
-                                <span>Stored Procedures</span>
-                                <span class="topic-status">Study</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <!-- CLOUD -->
-
-                    <div class="module-card">
-
-                        <div class="module-top">
-
-                            <div class="module-name">
-
-                                <h4>
-                                    Cloud Development
-                                </h4>
-
-                                <p>
-                                    2 of 5 topics completed
-                                </p>
-
-                            </div>
-
-                            <span class="percent">
-                                40%
-                            </span>
-
-                        </div>
-
-                        <div class="progress-track">
-                            <div class="progress-fill w40"></div>
-                        </div>
-
-                        <div class="topic-list">
-
-                            <div class="topic completed">
-                                <span>Storage Accounts</span>
-                                <span>✓</span>
-                            </div>
-
-                            <div class="topic">
-                                <span>Azure Functions</span>
-                                <span class="topic-status">Study</span>
-                            </div>
-
-                            <div class="topic">
-                                <span>REST APIs</span>
-                                <span class="topic-status">Study</span>
-                            </div>
-
-                        </div>
+                        <div id="studySessionList"></div>
 
                     </div>
 
@@ -665,101 +770,79 @@
 
                 <div>
 
+                    <!-- RECOMMENDED FOCUS -->
+
                     <div class="panel">
-
-                        <div class="panel-header">
-                            <h3>Start Studying</h3>
-                        </div>
-
-                        <div class="study-card">
-
-                            <h4>
-                                Recommended Topic
-                            </h4>
-
-                            <p>
-                                File Handling in Programming is currently
-                                one of your incomplete topics and relates
-                                to your highest-priority assignment.
-                            </p>
-
-                            <button class="start-button">
-                                Start Study Session
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                    <div class="panel" style="margin-top:22px;">
 
                         <div class="panel-header">
 
                             <h3>
-                                Today's Study Plan
+                                Recommended Focus
                             </h3>
 
                         </div>
 
-                        <div class="plan-item">
+                        <div id="studyFocus"></div>
 
-                            <div class="time">
-                                09:00
-                            </div>
+                    </div>
 
-                            <div class="plan-info">
+                    <!-- LOG SESSION -->
 
-                                <h4>
-                                    Programming
-                                </h4>
+                    <div class="panel">
 
-                                <p>
-                                    File Handling • 45 minutes
-                                </p>
+                        <div class="panel-header">
 
-                            </div>
+                            <h3>
+                                Log Study Session
+                            </h3>
 
                         </div>
 
-                        <div class="plan-item">
+                        <div class="form-group">
 
-                            <div class="time">
-                                10:00
-                            </div>
+                            <label>
+                                Assignment
+                            </label>
 
-                            <div class="plan-info">
+                            <select id="studyAssignment">
 
-                                <h4>
-                                    Programming POE
-                                </h4>
+                                <option value="">
+                                    Select assignment
+                                </option>
 
-                                <p>
-                                    Assignment work • 1 hour
-                                </p>
-
-                            </div>
+                            </select>
 
                         </div>
 
-                        <div class="plan-item">
+                        <div class="form-group">
 
-                            <div class="time">
-                                11:30
-                            </div>
+                            <label>
+                                Hours Studied
+                            </label>
 
-                            <div class="plan-info">
-
-                                <h4>
-                                    Database Development
-                                </h4>
-
-                                <p>
-                                    Stored Procedures • 30 minutes
-                                </p>
-
-                            </div>
+                            <input type="number"
+                                   id="studyHours"
+                                   min="0.1"
+                                   step="0.1"
+                                   placeholder="e.g. 1.5">
 
                         </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Notes
+                            </label>
+
+                            <textarea id="studyNotes"
+                                      placeholder="What did you work on?"></textarea>
+
+                        </div>
+
+                        <button class="study-button"
+                                id="logStudyButton">
+                            Log Study Session
+                        </button>
 
                     </div>
 
@@ -771,5 +854,936 @@
 
     </div>
 
+    <script src="uniflow.js"></script>
+
+    <script>
+
+        loadData();
+
+
+        renderStudyHub();
+
+
+       
+
+        function renderStudyHub() {
+
+            renderStudyStats();
+
+            renderCourseProgress();
+
+            renderStudyFocus();
+
+            renderStudySessions();
+
+            populateAssignmentDropdown();
+
+        }
+
+
+
+        function renderStudyStats() {
+
+            const hub =
+                getStudyHubData();
+
+
+            document
+                .getElementById(
+                    "totalStudyHours"
+                )
+                .textContent =
+                hub.overview
+                    .totalHoursStudied
+                    .toFixed(1);
+
+
+            document
+                .getElementById(
+                    "remainingHours"
+                )
+                .textContent =
+                hub.overview
+                    .remainingHours
+                    .toFixed(1);
+
+
+            document
+                .getElementById(
+                    "overallStudyProgress"
+                )
+                .textContent =
+                hub.overview
+                    .overallProgress +
+                "%";
+
+
+            document
+                .getElementById(
+                    "completedAssignments"
+                )
+                .textContent =
+                hub.overview.completed;
+
+        }
+
+
+   
+
+        function renderCourseProgress() {
+
+            const container =
+                document.getElementById(
+                    "courseProgressList"
+                );
+
+
+            const courses =
+                getCourseStats();
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                courses.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No modules available.
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            courses.forEach(
+
+                function (course) {
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "course-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="course-top">
+
+                            <div class="course-name">
+
+                                <h4>
+                                    ${escapeHTML(
+                        course.name
+                    )}
+                                </h4>
+
+                                <p>
+
+                                    ${escapeHTML(
+                        course.code
+                    )}
+
+                                    •
+                                    ${course.assignments.completed}
+                                    of
+                                    ${course.assignments.total}
+                                    assignments complete
+
+                                </p>
+
+                            </div>
+
+                            <div class="course-percent">
+
+                                ${course.progress}%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill"
+                                style="
+                                    width: ${course.progress}%;
+                                "
+                            ></div>
+
+                        </div>
+
+
+                        <div class="course-meta">
+
+                            <div class="meta-box">
+
+                                <strong>
+
+                                    ${course.assignments.remaining}
+
+                                </strong>
+
+                                <span>
+
+                                    Remaining
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="meta-box">
+
+                                <strong>
+
+                                    ${course.hours.studied.toFixed(1)}
+
+                                </strong>
+
+                                <span>
+
+                                    Hours Studied
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="meta-box">
+
+                                <strong>
+
+                                    ${course.hours.remaining.toFixed(1)}
+
+                                </strong>
+
+                                <span>
+
+                                    Est. Hours Left
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        card
+                    );
+
+                }
+
+            );
+
+        }
+
+
+  
+
+        function renderStudyFocus() {
+
+            const container =
+                document.getElementById(
+                    "studyFocus"
+                );
+
+
+            const focus =
+                getFocusNow();
+
+
+            if (
+                !focus.hasFocus
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="focus-card">
+
+                        <span class="focus-label">
+
+                            ALL CLEAR
+
+                        </span>
+
+                        <h4>
+
+                            No active assignments
+
+                        </h4>
+
+                        <p>
+
+                            All of your assignments are currently
+                            marked complete.
+
+                        </p>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            const assignment =
+                focus.assignment;
+
+
+            let completionReminder =
+                "";
+
+
+        
+
+            if (
+                assignment.progress >= 100 &&
+                assignment.status !== "completed"
+            ) {
+
+                completionReminder = `
+
+                    <div class="completion-reminder">
+
+                        You have logged all of the estimated
+                        study/work hours for this assignment.
+
+                        It is still marked as
+                        <strong>In Progress</strong>.
+
+                        Go to Assignments and choose
+                        <strong>Mark Complete</strong>
+                        once the work is actually finished
+                        or submitted.
+
+                    </div>
+
+                `;
+
+            }
+
+
+            container.innerHTML = `
+
+                <div class="focus-card">
+
+                    <span class="focus-label">
+
+                        STUDY THIS NEXT
+
+                    </span>
+
+                    <h4>
+
+                        ${escapeHTML(
+                assignment.name
+            )}
+
+                    </h4>
+
+                    <p>
+
+                        ${escapeHTML(
+                assignment.course
+            )}
+
+                    </p>
+
+
+                    <div class="focus-meta">
+
+                        <span class="pill">
+
+                            ${assignment.progress}%
+                            study progress
+
+                        </span>
+
+                        <span class="pill">
+
+                            ${formatDueDate(
+                assignment.daysUntilDue
+            )}
+
+                        </span>
+
+                        <span class="pill">
+
+                            ${assignment.totalStudied.toFixed(1)}
+                            /
+                            ${assignment.estimatedHours}
+                            hrs
+
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        style="
+                            margin-top: 14px;
+                        "
+                    >
+
+                        ${escapeHTML(
+                focus.recommendation
+            )}
+
+                    </p>
+
+
+                    ${completionReminder}
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        function populateAssignmentDropdown() {
+
+            const select =
+                document.getElementById(
+                    "studyAssignment"
+                );
+
+
+            const selectedValue =
+                select.value;
+
+
+            select.innerHTML = `
+
+                <option value="">
+
+                    Select assignment
+
+                </option>
+
+            `;
+
+
+       
+
+            const assignments =
+                getPrioritizedAssignments();
+
+
+            assignments.forEach(
+
+                function (assignment) {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        assignment.id;
+
+
+                    const courseName =
+                        assignment.course
+
+                            ?
+
+                            assignment.course.name
+
+                            :
+
+                            "Unknown Module";
+
+
+                    option.textContent =
+
+                        assignment.name +
+                        " — " +
+                        courseName;
+
+
+                    select.appendChild(
+                        option
+                    );
+
+                }
+
+            );
+
+
+            if (selectedValue) {
+
+                select.value =
+                    selectedValue;
+            }
+
+        }
+
+
+
+        document
+            .getElementById(
+                "logStudyButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                function () {
+
+                    const assignmentId =
+                        Number(
+
+                            document
+                                .getElementById(
+                                    "studyAssignment"
+                                )
+                                .value
+
+                        );
+
+
+                    const hours =
+                        Number(
+
+                            document
+                                .getElementById(
+                                    "studyHours"
+                                )
+                                .value
+
+                        );
+
+
+                    const notes =
+                        document
+                            .getElementById(
+                                "studyNotes"
+                            )
+                            .value
+                            .trim();
+
+
+                    if (!assignmentId) {
+
+                        alert(
+                            "Please select an assignment."
+                        );
+
+                        return;
+                    }
+
+
+                    if (
+                        !hours ||
+                        hours <= 0
+                    ) {
+
+                        alert(
+                            "Please enter a valid number of study hours."
+                        );
+
+                        return;
+                    }
+
+
+                    try {
+
+                        handleStartStudying(
+
+                            assignmentId,
+
+                            hours,
+
+                            notes
+
+                        );
+
+
+                        clearStudyForm();
+
+
+                        renderStudyHub();
+
+                    }
+                    catch (error) {
+
+                        alert(
+                            error.message
+                        );
+
+                    }
+
+                }
+
+            );
+
+
+
+        function clearStudyForm() {
+
+            document
+                .getElementById(
+                    "studyAssignment"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "studyHours"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "studyNotes"
+                )
+                .value =
+                "";
+
+        }
+
+
+
+
+        function renderStudySessions() {
+
+            const container =
+                document.getElementById(
+                    "studySessionList"
+                );
+
+
+            const sessions =
+                getStudySessions();
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                sessions.length === 0
+            ) {
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No study sessions logged yet.
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            sessions
+                .slice(0, 10)
+                .forEach(
+
+                    function (session) {
+
+                        const assignment =
+                            getAssignment(
+                                session.assignmentId
+                            );
+
+
+                        const course =
+                            assignment
+
+                                ?
+
+                                getCourse(
+                                    assignment.courseId
+                                )
+
+                                :
+
+                                null;
+
+
+                        const item =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        item.className =
+                            "session-item";
+
+
+                        item.innerHTML = `
+
+                            <div class="session-info">
+
+                                <h4>
+
+                                    ${assignment
+                                ?
+                                escapeHTML(
+                                    assignment.name
+                                )
+                                :
+                                "Deleted Assignment"
+                            }
+
+                                </h4>
+
+                                <p>
+
+                                    ${course
+                                ?
+                                escapeHTML(
+                                    course.name
+                                ) +
+                                " • "
+                                :
+                                ""
+                            }
+
+                                    ${formatSessionDate(
+                                session.date
+                            )}
+
+                                    ${session.notes
+                                ?
+                                " • " +
+                                escapeHTML(
+                                    session.notes
+                                )
+                                :
+                                ""
+                            }
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="session-right">
+
+                                <div class="session-hours">
+
+                                    ${Number(
+                                session.hours
+                            ).toFixed(1)}
+                                    hrs
+
+                                </div>
+
+                                <button
+                                    class="delete-session-button"
+                                    onclick="
+                                        removeStudySession(${session.id})
+                                    "
+                                >
+
+                                    Delete
+
+                                </button>
+
+                            </div>
+
+                        `;
+
+
+                        container.appendChild(
+                            item
+                        );
+
+                    }
+
+                );
+
+        }
+
+
+
+
+        function removeStudySession(
+            sessionId
+        ) {
+
+            const session =
+                state.studySessions.find(
+
+                    item =>
+                        item.id ===
+                        Number(sessionId)
+
+                );
+
+
+            if (!session) {
+
+                return;
+            }
+
+
+            const assignment =
+                getAssignment(
+                    session.assignmentId
+                );
+
+
+            const assignmentName =
+
+                assignment
+
+                    ?
+
+                    assignment.name
+
+                    :
+
+                    "this assignment";
+
+
+            const confirmed =
+                confirm(
+
+                    `Delete this ${session.hours} hour study session for "${assignmentName}"?`
+
+                );
+
+
+            if (!confirmed) {
+
+                return;
+            }
+
+
+            deleteStudySession(
+                sessionId
+            );
+
+
+            renderStudyHub();
+
+        }
+
+
+
+        function formatDueDate(
+            days
+        ) {
+
+            if (
+                days < 0
+            ) {
+
+                return (
+                    Math.abs(days) +
+                    "d overdue"
+                );
+            }
+
+
+            if (
+                days === 0
+            ) {
+
+                return "Due today";
+            }
+
+
+            if (
+                days === 1
+            ) {
+
+                return "Due tomorrow";
+            }
+
+
+            return (
+                "Due in " +
+                days +
+                " days"
+            );
+
+        }
+
+
+        function formatSessionDate(
+            dateString
+        ) {
+
+            const date =
+                new Date(
+                    dateString +
+                    "T00:00:00"
+                );
+
+
+            return date.toLocaleDateString(
+
+                undefined,
+
+                {
+                    day:
+                        "numeric",
+
+                    month:
+                        "short",
+
+                    year:
+                        "numeric"
+                }
+
+            );
+
+        }
+
+
+
+        function escapeHTML(
+            value
+        ) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                value ?? "";
+
+
+            return div.innerHTML;
+
+        }
+
+    </script>
+
 </body>
+
 </html>

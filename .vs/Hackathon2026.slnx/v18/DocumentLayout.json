@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\UniLogic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:UniLogic.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\modules.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:modules.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\progress.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:progress.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\studyhub.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:studyhub.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\uniflow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:uniflow.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\assignments.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assignments.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\emeris\\Desktop\\Hackathon2026\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -18,30 +34,82 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "assignments.html",
+              "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\assignments.html",
+              "RelativeDocumentMoniker": "assignments.html",
+              "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\assignments.html",
+              "RelativeToolTip": "assignments.html",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwDMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-09-07T09:05:15.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UniLogic.js",
-              "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\UniLogic.js",
-              "RelativeDocumentMoniker": "UniLogic.js",
-              "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\UniLogic.js",
-              "RelativeToolTip": "UniLogic.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "Title": "modules.html",
+              "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\modules.html",
+              "RelativeDocumentMoniker": "modules.html",
+              "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\modules.html",
+              "RelativeToolTip": "modules.html",
+              "ViewState": "AgIAAC8CAAAAAAAAAAAkwEICAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-09-07T09:05:04.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "progress.html",
+              "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\progress.html",
+              "RelativeDocumentMoniker": "progress.html",
+              "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\progress.html",
+              "RelativeToolTip": "progress.html",
+              "ViewState": "AgIAAMYBAAAAAAAAAAAkwNUBAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-09-07T09:04:57.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "studyhub.html",
+              "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\studyhub.html",
+              "RelativeDocumentMoniker": "studyhub.html",
+              "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\studyhub.html",
+              "RelativeToolTip": "studyhub.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-09-07T09:04:41.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "uniflow.js",
+              "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\uniflow.js",
+              "RelativeDocumentMoniker": "uniflow.js",
+              "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\uniflow.js",
+              "RelativeToolTip": "uniflow.js",
+              "ViewState": "AgIAAPkEAAAAAAAAAAAUwA8FAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-09-07T08:21:51.935Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\index.html",
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\emeris\\Desktop\\Hackathon2026\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKgFAAAAAAAAAAASwMEFAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-09-07T08:15:48.219Z",
               "EditorCaption": ""

@@ -1,15 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>UniFlow</title>
 
     <style>
-        /* =========================================
-           RESET
-        ========================================= */
 
         * {
             margin: 0;
@@ -44,18 +45,12 @@
             min-height: 100vh;
         }
 
-        /* =========================================
-           APP LAYOUT
-        ========================================= */
-
         .app {
             display: flex;
             min-height: 100vh;
         }
 
-        /* =========================================
-           SIDEBAR
-        ========================================= */
+
 
         .sidebar {
             width: 255px;
@@ -67,6 +62,7 @@
             left: 0;
             top: 0;
             bottom: 0;
+            z-index: 100;
         }
 
         .brand {
@@ -85,17 +81,17 @@
             height: 42px;
             border-radius: 14px;
             background: var(--emeris-green);
+            color: var(--emeris-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--emeris-dark);
             font-size: 24px;
             font-weight: bold;
         }
 
         .brand h1 {
             font-size: 25px;
-            letter-spacing: -0.5px;
+            color: white;
         }
 
         .brand p {
@@ -122,7 +118,7 @@
             color: #e8f0ed;
             text-decoration: none;
             font-size: 14px;
-            transition: 0.2s ease;
+            transition: background 0.2s ease;
         }
 
             .nav-item:hover {
@@ -138,6 +134,7 @@
         .nav-icon {
             width: 22px;
             text-align: center;
+            color: inherit;
         }
 
         .student-card {
@@ -149,11 +146,13 @@
             border: 1px solid rgba(255,255,255,0.08);
             padding: 15px;
             border-radius: 15px;
+            color: white;
         }
 
             .student-card strong {
                 display: block;
                 margin-bottom: 3px;
+                color: white;
             }
 
             .student-card span {
@@ -161,9 +160,6 @@
                 font-size: 12px;
             }
 
-        /* =========================================
-           MAIN
-        ========================================= */
 
         .main {
             margin-left: 255px;
@@ -171,9 +167,7 @@
             padding: 32px 38px 45px;
         }
 
-        /* =========================================
-           TOP BAR
-        ========================================= */
+  
 
         .topbar {
             display: flex;
@@ -185,27 +179,11 @@
         .page-heading h2 {
             font-size: 30px;
             margin-bottom: 6px;
-            letter-spacing: -0.7px;
         }
 
         .page-heading p {
             color: var(--muted);
             font-size: 14px;
-        }
-
-        .top-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .search-box {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 11px 14px;
-            width: 220px;
-            color: var(--muted);
         }
 
         .profile-circle {
@@ -220,9 +198,7 @@
             font-weight: bold;
         }
 
-        /* =========================================
-           HERO
-        ========================================= */
+       
 
         .hero {
             background: linear-gradient( 135deg, var(--emeris-dark) 0%, var(--emeris-dark) 62%, var(--emeris-green) 62%, var(--emeris-green) 100% );
@@ -231,14 +207,6 @@
             padding: 28px 30px;
             margin-bottom: 26px;
             box-shadow: var(--shadow);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 620px;
-            position: relative;
-            z-index: 2;
         }
 
         .hero-small {
@@ -252,7 +220,6 @@
         .hero h3 {
             font-size: 30px;
             margin-bottom: 10px;
-            line-height: 1.2;
         }
 
             .hero h3 span {
@@ -261,7 +228,7 @@
 
         .hero p {
             color: #dce7e4;
-            max-width: 500px;
+            max-width: 520px;
             line-height: 1.5;
             font-size: 14px;
         }
@@ -278,9 +245,6 @@
             font-weight: bold;
         }
 
-        /* =========================================
-           STATS
-        ========================================= */
 
         .stats-grid {
             display: grid;
@@ -290,18 +254,11 @@
         }
 
         .stat-card {
-            background: var(--surface);
+            background: white;
             border: 1px solid var(--border);
             border-radius: 18px;
             padding: 20px;
             box-shadow: var(--shadow);
-        }
-
-        .stat-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
         }
 
         .stat-icon {
@@ -309,11 +266,10 @@
             height: 40px;
             border-radius: 12px;
             background: var(--emeris-green-pale);
-            color: var(--emeris-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            margin-bottom: 15px;
         }
 
         .stat-value {
@@ -327,9 +283,6 @@
             font-size: 13px;
         }
 
-        /* =========================================
-           CONTENT GRID
-        ========================================= */
 
         .content-grid {
             display: grid;
@@ -344,6 +297,10 @@
             padding: 22px;
             box-shadow: var(--shadow);
         }
+
+            .panel + .panel {
+                margin-top: 22px;
+            }
 
         .panel-header {
             display: flex;
@@ -363,9 +320,7 @@
             font-weight: bold;
         }
 
-        /* =========================================
-           PRIORITY LIST
-        ========================================= */
+     
 
         .priority-item {
             display: grid;
@@ -398,6 +353,10 @@
             background: #a6bc73;
         }
 
+        .dot-low {
+            background: #aeb8b4;
+        }
+
         .priority-info h4 {
             font-size: 14px;
             margin-bottom: 5px;
@@ -409,9 +368,9 @@
         }
 
         .priority-badge {
-            font-size: 11px;
             padding: 6px 10px;
             border-radius: 999px;
+            font-size: 11px;
             font-weight: bold;
         }
 
@@ -430,16 +389,18 @@
             color: var(--success-text);
         }
 
-        /* =========================================
-           FOCUS CARD
-        ========================================= */
+        .badge-low {
+            background: #edf1ef;
+            color: var(--muted);
+        }
+
+  
 
         .focus-card {
             background: linear-gradient( 145deg, var(--emeris-green-pale), #ffffff );
             border: 1px solid #d9e8d1;
             border-radius: 15px;
             padding: 18px;
-            margin-bottom: 18px;
         }
 
         .focus-label {
@@ -454,20 +415,31 @@
 
         .focus-card h4 {
             font-size: 18px;
-            margin-bottom: 7px;
+            margin-bottom: 6px;
         }
 
         .focus-card p {
             color: var(--muted);
-            font-size: 13px;
+            font-size: 12px;
             line-height: 1.5;
+        }
+
+        .focus-score {
+            font-size: 31px;
+            font-weight: bold;
+            margin: 16px 0 4px;
+        }
+
+        .focus-score-label {
+            color: var(--muted);
+            font-size: 10px;
         }
 
         .focus-meta {
             display: flex;
+            flex-wrap: wrap;
             gap: 8px;
             margin-top: 14px;
-            flex-wrap: wrap;
         }
 
         .meta-pill {
@@ -478,13 +450,29 @@
             font-size: 11px;
         }
 
-        /* =========================================
-           STUDY PROGRESS
-        ========================================= */
+        .focus-action {
+            display: block;
+            width: 100%;
+            margin-top: 16px;
+            background: var(--emeris-dark);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 11px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+       
 
         .progress-item {
             margin-bottom: 17px;
         }
+
+            .progress-item:last-child {
+                margin-bottom: 0;
+            }
 
         .progress-top {
             display: flex;
@@ -510,21 +498,7 @@
             border-radius: 999px;
         }
 
-        .fill-78 {
-            width: 78%;
-        }
-
-        .fill-62 {
-            width: 62%;
-        }
-
-        .fill-48 {
-            width: 48%;
-        }
-
-        /* =========================================
-           QUICK ACTIONS
-        ========================================= */
+        
 
         .quick-actions {
             display: grid;
@@ -549,11 +523,16 @@
                 margin-top: 6px;
             }
 
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
+        .empty-message {
+            color: var(--muted);
+            font-size: 13px;
+            padding: 12px 0;
+        }
 
-        @media (max-width: 1100px) {
+    
+
+        @media(max-width: 1100px) {
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -563,7 +542,8 @@
             }
         }
 
-        @media (max-width: 760px) {
+        @media(max-width: 760px) {
+
             .sidebar {
                 display: none;
             }
@@ -574,34 +554,21 @@
                 padding: 20px;
             }
 
-            .topbar {
-                align-items: flex-start;
-                gap: 18px;
-                flex-direction: column;
-            }
-
             .stats-grid {
                 grid-template-columns: 1fr;
             }
-
-            .search-box {
-                width: 100%;
-            }
-
-            .top-actions {
-                width: 100%;
-            }
         }
     </style>
+
 </head>
 
 <body>
 
     <div class="app">
 
-        <!-- =====================================
+        <!-- =========================================
              SIDEBAR
-        ====================================== -->
+        ========================================== -->
 
         <aside class="sidebar">
 
@@ -613,11 +580,15 @@
                         U
                     </div>
 
-                    <h1>UniFlow</h1>
+                    <h1>
+                        UniFlow
+                    </h1>
 
                 </div>
 
-                <p>Student command centre</p>
+                <p>
+                    Student command centre
+                </p>
 
             </div>
 
@@ -625,43 +596,41 @@
                 Workspace
             </div>
 
-            <a href="#" class="nav-item active">
+            <a href="index.html"
+               class="nav-item active">
                 <span class="nav-icon">⌂</span>
                 Dashboard
             </a>
 
-            <a href="assignments.html" class="nav-item">
+            <a href="assignments.html"
+               class="nav-item">
                 <span class="nav-icon">▤</span>
                 Assignments
             </a>
 
-            <a href="studyhub.html" class="nav-item">
+            <a href="studyhub.html"
+               class="nav-item">
                 <span class="nav-icon">◫</span>
                 Study Hub
             </a>
 
-            <a href="modules.html" class="nav-item">
+            <a href="modules.html"
+               class="nav-item">
                 <span class="nav-icon">▦</span>
                 Modules
             </a>
 
-            <a href="progress.html" class="nav-item">
+            <a href="progress.html"
+               class="nav-item">
                 <span class="nav-icon">◔</span>
                 Progress
             </a>
 
-            <div class="nav-label">
-                Account
-            </div>
-
-            <a href="#" class="nav-item">
-                <span class="nav-icon">⚙</span>
-                Settings
-            </a>
-
             <div class="student-card">
 
-                <strong>Student</strong>
+                <strong>
+                    Student
+                </strong>
 
                 <span>
                     Year 2 • Academic Dashboard
@@ -671,20 +640,21 @@
 
         </aside>
 
-
-        <!-- =====================================
-             MAIN CONTENT
-        ====================================== -->
+        <!-- =========================================
+             MAIN
+        ========================================== -->
 
         <main class="main">
 
-            <!-- TOP BAR -->
+            <!-- TOPBAR -->
 
             <div class="topbar">
 
                 <div class="page-heading">
 
-                    <h2>Dashboard</h2>
+                    <h2>
+                        Dashboard
+                    </h2>
 
                     <p>
                         Everything important, in one place.
@@ -692,50 +662,37 @@
 
                 </div>
 
-                <div class="top-actions">
-
-                    <div class="search-box">
-                        Search modules, tasks...
-                    </div>
-
-                    <div class="profile-circle">
-                        K
-                    </div>
-
+                <div class="profile-circle">
+                    K
                 </div>
 
             </div>
-
 
             <!-- HERO -->
 
             <section class="hero">
 
-                <div class="hero-content">
-
-                    <div class="hero-small">
-                        Monday • Academic overview
-                    </div>
-
-                    <h3>
-                        Know what matters.
-                        <span>Work smarter.</span>
-                    </h3>
-
-                    <p>
-                        UniFlow brings your assignments, priorities,
-                        study progress and academic workload into one
-                        clear student dashboard.
-                    </p>
-
-                    <a href="#" class="hero-button">
-                        View today's priorities
-                    </a>
-
+                <div class="hero-small">
+                    Academic overview
                 </div>
 
-            </section>
+                <h3>
+                    Know what matters.
+                    <span>Work smarter.</span>
+                </h3>
 
+                <p>
+                    UniFlow brings your assignments, priorities,
+                    study progress and academic workload into one
+                    clear student dashboard.
+                </p>
+
+                <a href="assignments.html"
+                   class="hero-button">
+                    View today's priorities
+                </a>
+
+            </section>
 
             <!-- STATS -->
 
@@ -743,16 +700,13 @@
 
                 <div class="stat-card">
 
-                    <div class="stat-top">
-
-                        <div class="stat-icon">
-                            ▤
-                        </div>
-
+                    <div class="stat-icon">
+                        ▤
                     </div>
 
-                    <div class="stat-value">
-                        6
+                    <div class="stat-value"
+                         id="activeAssignments">
+                        0
                     </div>
 
                     <div class="stat-title">
@@ -761,19 +715,15 @@
 
                 </div>
 
-
                 <div class="stat-card">
 
-                    <div class="stat-top">
-
-                        <div class="stat-icon">
-                            !
-                        </div>
-
+                    <div class="stat-icon">
+                        !
                     </div>
 
-                    <div class="stat-value">
-                        2
+                    <div class="stat-value"
+                         id="highPriorityCount">
+                        0
                     </div>
 
                     <div class="stat-title">
@@ -782,40 +732,32 @@
 
                 </div>
 
-
                 <div class="stat-card">
 
-                    <div class="stat-top">
-
-                        <div class="stat-icon">
-                            ✓
-                        </div>
-
+                    <div class="stat-icon">
+                        ✓
                     </div>
 
-                    <div class="stat-value">
-                        68%
+                    <div class="stat-value"
+                         id="weeklyProgress">
+                        0%
                     </div>
 
                     <div class="stat-title">
-                        Weekly Progress
+                        Weekly Study Progress
                     </div>
 
                 </div>
 
-
                 <div class="stat-card">
 
-                    <div class="stat-top">
-
-                        <div class="stat-icon">
-                            ◷
-                        </div>
-
+                    <div class="stat-icon">
+                        ◷
                     </div>
 
-                    <div class="stat-value">
-                        1d
+                    <div class="stat-value"
+                         id="nextDeadline">
+                        -
                     </div>
 
                     <div class="stat-title">
@@ -826,14 +768,15 @@
 
             </section>
 
-
-            <!-- MAIN GRID -->
+            <!-- CONTENT -->
 
             <section class="content-grid">
 
-                <!-- LEFT COLUMN -->
+                <!-- LEFT -->
 
                 <div>
+
+                    <!-- PRIORITIES -->
 
                     <div class="panel">
 
@@ -843,83 +786,18 @@
                                 Assignment Priorities
                             </h3>
 
-                            <a href="#" class="panel-link">
+                            <a href="assignments.html"
+                               class="panel-link">
                                 View all
                             </a>
 
                         </div>
 
-
-                        <div class="priority-item">
-
-                            <div class="priority-dot dot-critical"></div>
-
-                            <div class="priority-info">
-
-                                <h4>
-                                    Programming POE
-                                </h4>
-
-                                <p>
-                                    Programming • Due tomorrow • 35%
-                                </p>
-
-                            </div>
-
-                            <span class="priority-badge badge-critical">
-                                Critical
-                            </span>
-
-                        </div>
-
-
-                        <div class="priority-item">
-
-                            <div class="priority-dot dot-high"></div>
-
-                            <div class="priority-info">
-
-                                <h4>
-                                    Database Assignment
-                                </h4>
-
-                                <p>
-                                    Database Development • Due in 3 days
-                                </p>
-
-                            </div>
-
-                            <span class="priority-badge badge-high">
-                                High
-                            </span>
-
-                        </div>
-
-
-                        <div class="priority-item">
-
-                            <div class="priority-dot dot-medium"></div>
-
-                            <div class="priority-info">
-
-                                <h4>
-                                    Cloud Development ICE
-                                </h4>
-
-                                <p>
-                                    Cloud Development • Due in 6 days
-                                </p>
-
-                            </div>
-
-                            <span class="priority-badge badge-medium">
-                                Medium
-                            </span>
-
-                        </div>
+                        <div id="priorityList"></div>
 
                     </div>
 
+                    <!-- STUDY PROGRESS -->
 
                     <div class="panel">
 
@@ -929,87 +807,20 @@
                                 Study Progress
                             </h3>
 
-                            <a href="#" class="panel-link">
+                            <a href="studyhub.html"
+                               class="panel-link">
                                 Study Hub
                             </a>
 
                         </div>
 
-
-                        <div class="progress-item">
-
-                            <div class="progress-top">
-
-                                <span>
-                                    Programming
-                                </span>
-
-                                <span>
-                                    78%
-                                </span>
-
-                            </div>
-
-                            <div class="progress-track">
-
-                                <div class="progress-fill fill-78"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="progress-item">
-
-                            <div class="progress-top">
-
-                                <span>
-                                    Database Development
-                                </span>
-
-                                <span>
-                                    62%
-                                </span>
-
-                            </div>
-
-                            <div class="progress-track">
-
-                                <div class="progress-fill fill-62"></div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="progress-item">
-
-                            <div class="progress-top">
-
-                                <span>
-                                    Cloud Development
-                                </span>
-
-                                <span>
-                                    48%
-                                </span>
-
-                            </div>
-
-                            <div class="progress-track">
-
-                                <div class="progress-fill fill-48"></div>
-
-                            </div>
-
-                        </div>
+                        <div id="studyProgressList"></div>
 
                     </div>
 
                 </div>
 
-
-                <!-- RIGHT COLUMN -->
+                <!-- RIGHT -->
 
                 <div>
 
@@ -1023,42 +834,12 @@
 
                         </div>
 
-                        <div class="focus-card">
-
-                            <span class="focus-label">
-                                TOP PRIORITY
-                            </span>
-
-                            <h4>
-                                Programming POE
-                            </h4>
-
-                            <p>
-                                This task has the closest deadline and
-                                carries significant academic weighting.
-                            </p>
-
-                            <div class="focus-meta">
-
-                                <span class="meta-pill">
-                                    Due tomorrow
-                                </span>
-
-                                <span class="meta-pill">
-                                    35% weighting
-                                </span>
-
-                                <span class="meta-pill">
-                                    8 hrs estimated
-                                </span>
-
-                            </div>
-
-                        </div>
+                        <div id="focusContainer"></div>
 
                         <div class="quick-actions">
 
-                            <a href="#" class="quick-action">
+                            <a href="assignments.html"
+                               class="quick-action">
 
                                 ＋
 
@@ -1068,27 +849,30 @@
 
                             </a>
 
-                            <a href="#" class="quick-action">
+                            <a href="studyhub.html"
+                               class="quick-action">
 
                                 ▷
 
                                 <strong>
-                                    Start Studying
+                                    Log Study
                                 </strong>
 
                             </a>
 
-                            <a href="#" class="quick-action">
+                            <a href="modules.html"
+                               class="quick-action">
 
                                 ▦
 
                                 <strong>
-                                    View Modules
+                                    Manage Modules
                                 </strong>
 
                             </a>
 
-                            <a href="#" class="quick-action">
+                            <a href="progress.html"
+                               class="quick-action">
 
                                 ◔
 
@@ -1110,5 +894,707 @@
 
     </div>
 
+    <script src="uniflow.js"></script>
+
+    <script>
+
+        loadData();
+
+        renderDashboard();
+
+
+       
+
+        function renderDashboard() {
+
+            const stats =
+                getDashboardStats();
+
+
+            renderStats(
+                stats
+            );
+
+
+            renderPriorityList(
+                stats.priorities
+            );
+
+
+            renderFocus(
+                stats.focus
+            );
+
+
+            renderStudyProgress();
+
+
+            renderNextDeadline();
+
+        }
+
+
+      
+
+        function renderStats(
+            stats
+        ) {
+
+
+            const active =
+                state.assignments.filter(
+
+                    assignment =>
+                        assignment.status !==
+                        "completed"
+
+                ).length;
+
+
+            document
+                .getElementById(
+                    "activeAssignments"
+                )
+                .textContent =
+                active;
+
+
+            document
+                .getElementById(
+                    "highPriorityCount"
+                )
+                .textContent =
+                stats.highPriorityTasks;
+
+
+            document
+                .getElementById(
+                    "weeklyProgress"
+                )
+                .textContent =
+                stats.weeklyProgress +
+                "%";
+
+        }
+
+
+
+        function renderNextDeadline() {
+
+
+            const assignments =
+                getPrioritizedAssignments();
+
+
+            if (
+                assignments.length === 0
+            ) {
+
+
+                document
+                    .getElementById(
+                        "nextDeadline"
+                    )
+                    .textContent =
+                    "-";
+
+
+                return;
+
+            }
+
+
+            const sortedByDate =
+                [...assignments].sort(
+
+                    (a, b) =>
+                        new Date(a.dueDate) -
+                        new Date(b.dueDate)
+
+                );
+
+
+            const next =
+                sortedByDate[0];
+
+
+            document
+                .getElementById(
+                    "nextDeadline"
+                )
+                .textContent =
+                formatDueShort(
+                    next.daysUntilDue
+                );
+
+        }
+
+
+        function formatDueShort(
+            days
+        ) {
+
+
+            if (
+                days < 0
+            ) {
+
+                return (
+                    Math.abs(days) +
+                    "d late"
+                );
+
+            }
+
+
+            if (
+                days === 0
+            ) {
+
+                return "Today";
+
+            }
+
+
+            if (
+                days === 1
+            ) {
+
+                return "1d";
+
+            }
+
+
+            return (
+                days +
+                "d"
+            );
+
+        }
+
+
+
+        function renderPriorityList(
+            assignments
+        ) {
+
+
+            const container =
+                document.getElementById(
+                    "priorityList"
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                !assignments ||
+                assignments.length === 0
+            ) {
+
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No active assignments.
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+            assignments.forEach(
+
+                function (assignment) {
+
+
+                    const display =
+                        getPriorityDisplay(
+                            assignment.priorityScore
+                        );
+
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "priority-item";
+
+
+                    item.innerHTML = `
+
+                        <div
+                            class="
+                                priority-dot
+                                ${display.dotClass}
+                            "
+                        ></div>
+
+
+                        <div class="priority-info">
+
+                            <h4>
+
+                                ${escapeHTML(
+                        assignment.name
+                    )}
+
+                            </h4>
+
+                            <p>
+
+                                ${escapeHTML(
+                        assignment.course
+                    )}
+
+                                •
+                                ${formatDueText(
+                        assignment.daysUntilDue
+                    )}
+
+                                •
+                                ${assignment.weight}%
+
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            class="
+                                priority-badge
+                                ${display.badgeClass}
+                            "
+                        >
+
+                            ${display.text}
+
+                        </span>
+
+                    `;
+
+
+                    container.appendChild(
+                        item
+                    );
+
+                }
+
+            );
+
+        }
+
+
+        function getPriorityDisplay(
+            score
+        ) {
+
+
+            if (
+                score >= 75
+            ) {
+
+                return {
+
+                    text:
+                        "Critical",
+
+                    dotClass:
+                        "dot-critical",
+
+                    badgeClass:
+                        "badge-critical"
+
+                };
+
+            }
+
+
+            if (
+                score >= 50
+            ) {
+
+                return {
+
+                    text:
+                        "High",
+
+                    dotClass:
+                        "dot-high",
+
+                    badgeClass:
+                        "badge-high"
+
+                };
+
+            }
+
+
+            if (
+                score >= 25
+            ) {
+
+                return {
+
+                    text:
+                        "Medium",
+
+                    dotClass:
+                        "dot-medium",
+
+                    badgeClass:
+                        "badge-medium"
+
+                };
+
+            }
+
+
+            return {
+
+                text:
+                    "Low",
+
+                dotClass:
+                    "dot-low",
+
+                badgeClass:
+                    "badge-low"
+
+            };
+
+        }
+
+
+        function formatDueText(
+            days
+        ) {
+
+
+            if (
+                days < 0
+            ) {
+
+                return (
+                    Math.abs(days) +
+                    " day(s) overdue"
+                );
+
+            }
+
+
+            if (
+                days === 0
+            ) {
+
+                return "Due today";
+
+            }
+
+
+            if (
+                days === 1
+            ) {
+
+                return "Due tomorrow";
+
+            }
+
+
+            return (
+                "Due in " +
+                days +
+                " days"
+            );
+
+        }
+
+
+
+        function renderFocus(
+            focus
+        ) {
+
+
+            const container =
+                document.getElementById(
+                    "focusContainer"
+                );
+
+
+            if (
+                !focus.hasFocus
+            ) {
+
+
+                container.innerHTML = `
+
+                    <div class="focus-card">
+
+                        <span class="focus-label">
+
+                            ALL CLEAR
+
+                        </span>
+
+                        <h4>
+
+                            You're all caught up
+
+                        </h4>
+
+                        <p>
+
+                            There are no active assignments
+                            requiring attention.
+
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+            const assignment =
+                focus.assignment;
+
+
+            container.innerHTML = `
+
+                <div class="focus-card">
+
+                    <span class="focus-label">
+
+                        TOP PRIORITY
+
+                    </span>
+
+                    <h4>
+
+                        ${escapeHTML(
+                assignment.name
+            )}
+
+                    </h4>
+
+                    <p>
+
+                        ${escapeHTML(
+                assignment.course
+            )}
+
+                    </p>
+
+
+                    <div class="focus-score">
+
+                        ${assignment.priorityScore}
+
+                    </div>
+
+                    <div class="focus-score-label">
+
+                        Priority Score
+
+                    </div>
+
+
+                    <div class="focus-meta">
+
+                        <span class="meta-pill">
+
+                            ${formatDueText(
+                assignment.daysUntilDue
+            )}
+
+                        </span>
+
+                        <span class="meta-pill">
+
+                            ${assignment.weight}%
+                            weighting
+
+                        </span>
+
+                        <span class="meta-pill">
+
+                            ${assignment.progress}%
+                            study progress
+
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        style="
+                            margin-top: 15px;
+                        "
+                    >
+
+                        ${escapeHTML(
+                focus.recommendation
+            )}
+
+                    </p>
+
+
+                    <a
+                        href="assignments.html"
+                        class="focus-action"
+                    >
+
+                        View Assignment
+
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+       
+
+        function renderStudyProgress() {
+
+
+            const container =
+                document.getElementById(
+                    "studyProgressList"
+                );
+
+
+            const courses =
+                getCourseStats();
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                courses.length === 0
+            ) {
+
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No modules available.
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+            courses.forEach(
+
+                function (course) {
+
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "progress-item";
+
+
+                    item.innerHTML = `
+
+                        <div class="progress-top">
+
+                            <span>
+
+                                ${escapeHTML(
+                        course.name
+                    )}
+
+                            </span>
+
+                            <span>
+
+                                ${course.progress}%
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill"
+                                style="
+                                    width: ${course.progress}%;
+                                "
+                            ></div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        item
+                    );
+
+                }
+
+            );
+
+        }
+
+
+       
+
+        function escapeHTML(
+            value
+        ) {
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                value ?? "";
+
+
+            return div.innerHTML;
+
+        }
+
+    </script>
+
 </body>
+
 </html>

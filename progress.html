@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>UniFlow - Progress</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -17,19 +21,16 @@
             --emeris-dark: #234b54;
             --emeris-dark-2: #1b3d45;
             --emeris-green: #9fc58b;
-            --emeris-green-soft: #dcebd2;
             --emeris-green-pale: #eef6e9;
             --background: #f4f7f5;
             --surface: #ffffff;
             --text: #183038;
             --muted: #728086;
             --border: #dfe7e2;
-            --danger-bg: #fde6e3;
-            --danger-text: #a23b32;
-            --warning-bg: #fff0d8;
-            --warning-text: #9b651e;
             --success-bg: #e4f2dc;
             --success-text: #4e7c42;
+            --warning-bg: #fff0d8;
+            --warning-text: #9b651e;
             --shadow: 0 10px 30px rgba(31, 63, 71, 0.08);
         }
 
@@ -45,7 +46,7 @@
             min-height: 100vh;
         }
 
-        /* SIDEBAR */
+       
 
         .sidebar {
             width: 255px;
@@ -148,7 +149,7 @@
                 font-size: 12px;
             }
 
-        /* MAIN */
+        
 
         .main {
             margin-left: 255px;
@@ -185,7 +186,6 @@
             font-weight: bold;
         }
 
-        /* SUMMARY */
 
         .summary-grid {
             display: grid;
@@ -202,30 +202,29 @@
             box-shadow: var(--shadow);
         }
 
-            .summary-card .icon {
-                width: 40px;
-                height: 40px;
-                border-radius: 12px;
-                background: var(--emeris-green-pale);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-                font-size: 18px;
-            }
+        .summary-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--emeris-green-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
 
-            .summary-card strong {
-                display: block;
-                font-size: 28px;
-                margin-bottom: 5px;
-            }
+        .summary-card strong {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
 
-            .summary-card span {
-                color: var(--muted);
-                font-size: 12px;
-            }
+        .summary-card span {
+            color: var(--muted);
+            font-size: 12px;
+        }
 
-        /* MAIN GRID */
+      
 
         .progress-grid {
             display: grid;
@@ -261,7 +260,7 @@
                 font-size: 12px;
             }
 
-        /* MODULE PROGRESS */
+       
 
         .module-progress {
             margin-bottom: 22px;
@@ -306,23 +305,47 @@
             border-radius: 999px;
         }
 
-        .w82 {
-            width: 82%;
+      
+
+        .activity-chart {
+            display: flex;
+            align-items: end;
+            gap: 11px;
+            height: 190px;
+            padding-top: 15px;
         }
 
-        .w74 {
-            width: 74%;
+        .bar-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
         }
 
-        .w68 {
-            width: 68%;
+        .bar {
+            width: 70%;
+            max-width: 42px;
+            min-height: 4px;
+            background: var(--emeris-green);
+            border-radius: 8px 8px 3px 3px;
+            transition: height 0.3s ease;
         }
 
-        .w79 {
-            width: 79%;
+        .day {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 8px;
         }
 
-        /* WORKLOAD */
+        .hours-label {
+            font-size: 9px;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+   
 
         .workload-card {
             background: var(--emeris-green-pale);
@@ -353,67 +376,7 @@
             font-weight: bold;
         }
 
-        /* WEEKLY ACTIVITY */
-
-        .activity-chart {
-            display: flex;
-            align-items: end;
-            gap: 11px;
-            height: 180px;
-            padding-top: 15px;
-        }
-
-        .bar-column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            height: 100%;
-        }
-
-        .bar {
-            width: 70%;
-            max-width: 42px;
-            background: var(--emeris-green);
-            border-radius: 8px 8px 3px 3px;
-        }
-
-        .h35 {
-            height: 35%;
-        }
-
-        .h65 {
-            height: 65%;
-        }
-
-        .h50 {
-            height: 50%;
-        }
-
-        .h80 {
-            height: 80%;
-        }
-
-        .h60 {
-            height: 60%;
-        }
-
-        .h90 {
-            height: 90%;
-        }
-
-        .h45 {
-            height: 45%;
-        }
-
-        .day {
-            font-size: 10px;
-            color: var(--muted);
-            margin-top: 8px;
-        }
-
-        /* COMPLETION */
+      
 
         .completion-row {
             display: grid;
@@ -447,19 +410,14 @@
             font-weight: bold;
         }
 
-        /* GOALS */
+    
 
-        .goal {
+        .goal-card {
             background: #f8faf8;
             border: 1px solid var(--border);
             border-radius: 14px;
             padding: 15px;
-            margin-bottom: 12px;
         }
-
-            .goal:last-child {
-                margin-bottom: 0;
-            }
 
         .goal-top {
             display: flex;
@@ -472,11 +430,18 @@
             }
 
             .goal-top span {
-                font-size: 11px;
                 color: var(--muted);
+                font-size: 11px;
             }
 
+        .empty-message {
+            color: var(--muted);
+            font-size: 13px;
+            padding: 10px 0;
+        }
+
         @media(max-width: 1100px) {
+
             .summary-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -485,7 +450,25 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media(max-width: 760px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -504,49 +487,51 @@
                         U
                     </div>
 
-                    <h1>UniFlow</h1>
+                    <h1>
+                        UniFlow
+                    </h1>
 
                 </div>
 
-                <p>Student command centre</p>
+                <p>
+                    Student command centre
+                </p>
 
             </div>
-
 
             <div class="nav-label">
                 Workspace
             </div>
 
-
-            <a href="index.html" class="nav-item">
+            <a href="index.html"
+               class="nav-item">
                 <span class="nav-icon">⌂</span>
                 Dashboard
             </a>
 
-
-            <a href="assignments.html" class="nav-item">
+            <a href="assignments.html"
+               class="nav-item">
                 <span class="nav-icon">▤</span>
                 Assignments
             </a>
 
-
-            <a href="studyhub.html" class="nav-item">
+            <a href="studyhub.html"
+               class="nav-item">
                 <span class="nav-icon">◫</span>
                 Study Hub
             </a>
 
-
-            <a href="modules.html" class="nav-item">
+            <a href="modules.html"
+               class="nav-item">
                 <span class="nav-icon">▦</span>
                 Modules
             </a>
 
-
-            <a href="progress.html" class="nav-item active">
+            <a href="progress.html"
+               class="nav-item active">
                 <span class="nav-icon">◔</span>
                 Progress
             </a>
-
 
             <div class="student-card">
 
@@ -562,7 +547,6 @@
 
         </aside>
 
-
         <!-- MAIN -->
 
         <main class="main">
@@ -576,7 +560,7 @@
                     </h2>
 
                     <p>
-                        See how you're performing across your modules and workload.
+                        See how your workload and study effort are progressing.
                     </p>
 
                 </div>
@@ -587,53 +571,50 @@
 
             </div>
 
-
             <!-- SUMMARY -->
 
             <section class="summary-grid">
 
                 <div class="summary-card">
 
-                    <div class="icon">
-                        ◔
+                    <div class="summary-icon">
+                        ◫
                     </div>
 
-                    <strong>
-                        76%
+                    <strong id="overallProgress">
+                        0%
                     </strong>
 
                     <span>
-                        Overall Average
+                        Overall Study Progress
                     </span>
 
                 </div>
 
-
                 <div class="summary-card">
 
-                    <div class="icon">
+                    <div class="summary-icon">
                         ✓
                     </div>
 
-                    <strong>
-                        9
+                    <strong id="completedTasks">
+                        0
                     </strong>
 
                     <span>
-                        Tasks Completed
+                        Assignments Completed
                     </span>
 
                 </div>
 
-
                 <div class="summary-card">
 
-                    <div class="icon">
+                    <div class="summary-icon">
                         ▤
                     </div>
 
-                    <strong>
-                        6
+                    <strong id="activeTasks">
+                        0
                     </strong>
 
                     <span>
@@ -642,27 +623,25 @@
 
                 </div>
 
-
                 <div class="summary-card">
 
-                    <div class="icon">
-                        ◫
+                    <div class="summary-icon">
+                        ◷
                     </div>
 
-                    <strong>
-                        68%
+                    <strong id="studyHours">
+                        0
                     </strong>
 
                     <span>
-                        Study Progress
+                        Total Study Hours
                     </span>
 
                 </div>
 
             </section>
 
-
-            <!-- GRID -->
+            <!-- MAIN GRID -->
 
             <section class="progress-grid">
 
@@ -677,135 +656,20 @@
                         <div class="panel-header">
 
                             <h3>
-                                Module Performance
+                                Module Progress
                             </h3>
 
                             <span>
-                                Current marks
+                                Assignment completion
                             </span>
 
                         </div>
 
-
-                        <div class="module-progress">
-
-                            <div class="module-row">
-
-                                <div class="module-info">
-
-                                    <h4>
-                                        Programming
-                                    </h4>
-
-                                    <p>
-                                        PROG6221
-                                    </p>
-
-                                </div>
-
-                                <div class="module-mark">
-                                    82%
-                                </div>
-
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-fill w82"></div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="module-progress">
-
-                            <div class="module-row">
-
-                                <div class="module-info">
-
-                                    <h4>
-                                        Systems Analysis
-                                    </h4>
-
-                                    <p>
-                                        INSY6212
-                                    </p>
-
-                                </div>
-
-                                <div class="module-mark">
-                                    79%
-                                </div>
-
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-fill w79"></div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="module-progress">
-
-                            <div class="module-row">
-
-                                <div class="module-info">
-
-                                    <h4>
-                                        Database Development
-                                    </h4>
-
-                                    <p>
-                                        DBAS6212
-                                    </p>
-
-                                </div>
-
-                                <div class="module-mark">
-                                    74%
-                                </div>
-
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-fill w74"></div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="module-progress">
-
-                            <div class="module-row">
-
-                                <div class="module-info">
-
-                                    <h4>
-                                        Cloud Development
-                                    </h4>
-
-                                    <p>
-                                        CLDV6212
-                                    </p>
-
-                                </div>
-
-                                <div class="module-mark">
-                                    68%
-                                </div>
-
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-fill w68"></div>
-                            </div>
-
-                        </div>
+                        <div id="moduleProgressList"></div>
 
                     </div>
 
-
-                    <!-- WEEKLY ACTIVITY -->
+                    <!-- WEEKLY STUDY -->
 
                     <div class="panel">
 
@@ -816,55 +680,17 @@
                             </h3>
 
                             <span>
-                                Hours studied
+                                Hours logged each day
                             </span>
 
                         </div>
 
-
-                        <div class="activity-chart">
-
-                            <div class="bar-column">
-                                <div class="bar h35"></div>
-                                <div class="day">Mon</div>
-                            </div>
-
-                            <div class="bar-column">
-                                <div class="bar h65"></div>
-                                <div class="day">Tue</div>
-                            </div>
-
-                            <div class="bar-column">
-                                <div class="bar h50"></div>
-                                <div class="day">Wed</div>
-                            </div>
-
-                            <div class="bar-column">
-                                <div class="bar h80"></div>
-                                <div class="day">Thu</div>
-                            </div>
-
-                            <div class="bar-column">
-                                <div class="bar h60"></div>
-                                <div class="day">Fri</div>
-                            </div>
-
-                            <div class="bar-column">
-                                <div class="bar h90"></div>
-                                <div class="day">Sat</div>
-                            </div>
-
-                            <div class="bar-column">
-                                <div class="bar h45"></div>
-                                <div class="day">Sun</div>
-                            </div>
-
-                        </div>
+                        <div class="activity-chart"
+                             id="weeklyChart"></div>
 
                     </div>
 
                 </div>
-
 
                 <!-- RIGHT -->
 
@@ -882,29 +708,11 @@
 
                         </div>
 
-                        <div class="workload-card">
-
-                            <h4>
-                                Busy week ahead
-                            </h4>
-
-                            <p>
-                                You currently have several active assessments,
-                                including one high-weight assignment due very soon.
-                                Your workload is manageable, but your top priorities
-                                should receive attention first.
-                            </p>
-
-                            <span class="workload-status">
-                                Moderate Pressure
-                            </span>
-
-                        </div>
+                        <div id="workloadContainer"></div>
 
                     </div>
 
-
-                    <!-- RECENT COMPLETIONS -->
+                    <!-- RECENTLY COMPLETED -->
 
                     <div class="panel">
 
@@ -916,122 +724,42 @@
 
                         </div>
 
-
-                        <div class="completion-row">
-
-                            <div class="completion-info">
-
-                                <h4>
-                                    SQL Practical
-                                </h4>
-
-                                <p>
-                                    Database Development
-                                </p>
-
-                            </div>
-
-                            <span class="completion-badge">
-                                Done
-                            </span>
-
-                        </div>
-
-
-                        <div class="completion-row">
-
-                            <div class="completion-info">
-
-                                <h4>
-                                    Azure Storage ICE
-                                </h4>
-
-                                <p>
-                                    Cloud Development
-                                </p>
-
-                            </div>
-
-                            <span class="completion-badge">
-                                Done
-                            </span>
-
-                        </div>
-
-
-                        <div class="completion-row">
-
-                            <div class="completion-info">
-
-                                <h4>
-                                    ERD Practical
-                                </h4>
-
-                                <p>
-                                    Systems Analysis
-                                </p>
-
-                            </div>
-
-                            <span class="completion-badge">
-                                Done
-                            </span>
-
-                        </div>
+                        <div id="completedList"></div>
 
                     </div>
 
-
-                    <!-- GOALS -->
+                    <!-- WEEKLY GOAL -->
 
                     <div class="panel">
 
                         <div class="panel-header">
 
                             <h3>
-                                Academic Goals
+                                Weekly Study Goal
                             </h3>
 
                         </div>
 
-
-                        <div class="goal">
+                        <div class="goal-card">
 
                             <div class="goal-top">
 
                                 <h4>
-                                    Maintain 75% average
+                                    Study goal
                                 </h4>
 
-                                <span>
-                                    76%
+                                <span id="goalText">
+                                    0 / 0 hrs
                                 </span>
 
                             </div>
 
                             <div class="progress-track">
-                                <div class="progress-fill w79"></div>
-                            </div>
 
-                        </div>
+                                <div class="progress-fill"
+                                     id="goalProgressBar"
+                                     style="width: 0%;"></div>
 
-
-                        <div class="goal">
-
-                            <div class="goal-top">
-
-                                <h4>
-                                    Complete weekly study plan
-                                </h4>
-
-                                <span>
-                                    68%
-                                </span>
-
-                            </div>
-
-                            <div class="progress-track">
-                                <div class="progress-fill w68"></div>
                             </div>
 
                         </div>
@@ -1046,5 +774,578 @@
 
     </div>
 
+    <script src="uniflow.js"></script>
+
+    <script>
+
+        loadData();
+
+        renderProgressPage();
+
+
+        function renderProgressPage() {
+
+            renderSummary();
+
+            renderModuleProgress();
+
+            renderWeeklyActivity();
+
+            renderWorkload();
+
+            renderCompletedAssignments();
+
+            renderStudyGoal();
+
+        }
+
+
+    
+
+        function renderSummary() {
+
+            const hub =
+                getStudyHubData();
+
+
+            const active =
+                state.assignments.filter(
+
+                    assignment =>
+                        assignment.status !== "completed"
+
+                ).length;
+
+
+            document
+                .getElementById(
+                    "overallProgress"
+                )
+                .textContent =
+                hub.overview.overallProgress + "%";
+
+
+            document
+                .getElementById(
+                    "completedTasks"
+                )
+                .textContent =
+                hub.overview.completed;
+
+
+            document
+                .getElementById(
+                    "activeTasks"
+                )
+                .textContent =
+                active;
+
+
+            document
+                .getElementById(
+                    "studyHours"
+                )
+                .textContent =
+                hub.overview.totalHoursStudied.toFixed(1);
+
+        }
+
+
+
+        function renderModuleProgress() {
+
+            const container =
+                document.getElementById(
+                    "moduleProgressList"
+                );
+
+
+            const courses =
+                getCourseStats();
+
+
+            container.innerHTML =
+                "";
+
+
+            if (courses.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No module data available.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            courses.forEach(
+
+                function (course) {
+
+
+                    const item =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    item.className =
+                        "module-progress";
+
+
+                    item.innerHTML = `
+
+                        <div class="module-row">
+
+
+                            <div class="module-info">
+
+                                <h4>
+
+                                    ${course.name}
+
+                                </h4>
+
+                                <p>
+
+                                    ${course.code}
+                                    •
+                                    ${course.assignments.completed}
+                                    /
+                                    ${course.assignments.total}
+                                    assignments complete
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="module-mark">
+
+                                ${course.progress}%
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill"
+                                style="
+                                    width: ${course.progress}%;
+                                "
+                            ></div>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        item
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+        
+
+        function renderWeeklyActivity() {
+
+            const container =
+                document.getElementById(
+                    "weeklyChart"
+                );
+
+
+            const days = [
+                "Sun",
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat"
+            ];
+
+
+            const dailyHours =
+                [0, 0, 0, 0, 0, 0, 0];
+
+
+            const today =
+                new Date();
+
+
+            const weekStart =
+                new Date(today);
+
+
+            weekStart.setDate(
+                today.getDate() -
+                today.getDay()
+            );
+
+
+            weekStart.setHours(
+                0,
+                0,
+                0,
+                0
+            );
+
+
+            state.studySessions.forEach(
+
+                function (session) {
+
+
+                    const date =
+                        new Date(
+                            session.date +
+                            "T00:00:00"
+                        );
+
+
+                    if (date >= weekStart) {
+
+                        const dayIndex =
+                            date.getDay();
+
+
+                        dailyHours[dayIndex] +=
+                            Number(session.hours);
+
+                    }
+
+
+                }
+
+            );
+
+
+            const maxHours =
+                Math.max(
+                    ...dailyHours,
+                    1
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+            dailyHours.forEach(
+
+                function (hours, index) {
+
+
+                    const height =
+                        Math.max(
+                            4,
+                            (hours / maxHours) * 100
+                        );
+
+
+                    const column =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    column.className =
+                        "bar-column";
+
+
+                    column.innerHTML = `
+
+                        <div class="hours-label">
+
+                            ${hours.toFixed(1)}h
+
+                        </div>
+
+                        <div
+                            class="bar"
+                            style="
+                                height: ${height}%;
+                            "
+                        ></div>
+
+                        <div class="day">
+
+                            ${days[index]}
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        column
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+    
+       
+
+        function renderWorkload() {
+
+            const container =
+                document.getElementById(
+                    "workloadContainer"
+                );
+
+
+            const priorities =
+                getPrioritizedAssignments();
+
+
+            const urgent =
+                priorities.filter(
+
+                    assignment =>
+                        assignment.daysUntilDue <= 3
+
+                );
+
+
+            let heading =
+                "Workload looks manageable";
+
+
+            let description =
+                "You currently have enough time to work through your active assignments.";
+
+
+            let status =
+                "Manageable";
+
+
+            if (urgent.length >= 3) {
+
+                heading =
+                    "Heavy workload ahead";
+
+
+                description =
+                    "Several assignments are approaching their deadlines. Focus on your highest-priority tasks first.";
+
+
+                status =
+                    "High Pressure";
+
+            }
+            else if (urgent.length >= 1) {
+
+                heading =
+                    "Busy period ahead";
+
+
+                description =
+                    "You have at least one assignment due soon. UniFlow recommends focusing on the highest-priority task first.";
+
+
+                status =
+                    "Moderate Pressure";
+
+            }
+
+
+            container.innerHTML = `
+
+                <div class="workload-card">
+
+                    <h4>
+
+                        ${heading}
+
+                    </h4>
+
+                    <p>
+
+                        ${description}
+
+                    </p>
+
+                    <span class="workload-status">
+
+                        ${status}
+
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        function renderCompletedAssignments() {
+
+            const container =
+                document.getElementById(
+                    "completedList"
+                );
+
+
+            const completed =
+                state.assignments.filter(
+
+                    assignment =>
+                        assignment.status === "completed"
+
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+            if (completed.length === 0) {
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No completed assignments yet.
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            completed
+                .slice(-5)
+                .reverse()
+                .forEach(
+
+                    function (assignment) {
+
+
+                        const course =
+                            getCourse(
+                                assignment.courseId
+                            );
+
+
+                        const row =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        row.className =
+                            "completion-row";
+
+
+                        row.innerHTML = `
+
+                            <div class="completion-info">
+
+                                <h4>
+
+                                    ${assignment.name}
+
+                                </h4>
+
+                                <p>
+
+                                    ${course
+                                ? course.name
+                                : "Unknown Module"
+                            }
+
+                                </p>
+
+                            </div>
+
+
+                            <span class="completion-badge">
+
+                                Done
+
+                            </span>
+
+                        `;
+
+
+                        container.appendChild(
+                            row
+                        );
+
+
+                    }
+
+                );
+
+        }
+
+
+
+        function renderStudyGoal() {
+
+            const stats =
+                getDashboardStats();
+
+
+            document
+                .getElementById(
+                    "goalText"
+                )
+                .textContent =
+
+                stats.weeklyHours.toFixed(1)
+                +
+                " / "
+                +
+                stats.weeklyGoal
+                +
+                " hrs";
+
+
+            document
+                .getElementById(
+                    "goalProgressBar"
+                )
+                .style
+                .width =
+
+                stats.weeklyProgress
+                +
+                "%";
+
+        }
+
+    </script>
+
 </body>
+
 </html>

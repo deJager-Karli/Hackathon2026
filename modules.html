@@ -1,11 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>UniFlow - Modules</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -26,6 +32,8 @@
             --success-text: #4e7c42;
             --warning-bg: #fff0d8;
             --warning-text: #9b651e;
+            --danger-bg: #fde6e3;
+            --danger-text: #a23b32;
             --shadow: 0 10px 30px rgba(31, 63, 71, 0.08);
         }
 
@@ -41,7 +49,6 @@
             min-height: 100vh;
         }
 
-        /* SIDEBAR */
 
         .sidebar {
             width: 255px;
@@ -144,7 +151,7 @@
                 font-size: 12px;
             }
 
-        /* MAIN */
+       
 
         .main {
             margin-left: 255px;
@@ -181,13 +188,13 @@
             font-weight: bold;
         }
 
-        /* SUMMARY */
+
 
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 18px;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
         .summary-card {
@@ -209,15 +216,39 @@
                 font-size: 12px;
             }
 
-        /* MODULE GRID */
+       
+
+        .page-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 22px;
+        }
+
+        .add-main-button {
+            background: var(--emeris-green);
+            color: var(--emeris-dark);
+            border: none;
+            border-radius: 12px;
+            padding: 12px 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 22px;
+        }
 
         .module-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 22px;
+            gap: 18px;
         }
 
-        .module-card {
+        .panel {
             background: white;
             border: 1px solid var(--border);
             border-radius: 18px;
@@ -225,166 +256,258 @@
             box-shadow: var(--shadow);
         }
 
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .panel-header h3 {
+                font-size: 18px;
+            }
+
+
+        .module-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
         .module-header {
             display: flex;
             justify-content: space-between;
-            gap: 15px;
-            margin-bottom: 18px;
+            gap: 12px;
+            margin-bottom: 17px;
         }
 
         .module-title h3 {
-            font-size: 19px;
+            font-size: 18px;
             margin-bottom: 5px;
         }
 
         .module-title p {
             color: var(--muted);
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .module-code {
+            height: fit-content;
             background: var(--emeris-green-pale);
             color: var(--emeris-dark);
             border-radius: 999px;
             padding: 7px 10px;
-            height: fit-content;
             font-size: 11px;
             font-weight: bold;
         }
 
-        /* MARK */
-
-        .mark-row {
+        .progress-row {
             display: flex;
             justify-content: space-between;
             align-items: end;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .mark-label {
+        .progress-label {
             color: var(--muted);
-            font-size: 12px;
+            font-size: 11px;
         }
 
-        .mark {
-            font-size: 26px;
+        .progress-value {
+            font-size: 22px;
             font-weight: bold;
         }
 
         .progress-track {
             height: 8px;
-            background: #edf1ef;
             border-radius: 999px;
+            background: #edf1ef;
             overflow: hidden;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
         .progress-fill {
             height: 100%;
-            border-radius: 999px;
             background: var(--emeris-green);
+            border-radius: 999px;
         }
-
-        .w82 {
-            width: 82%;
-        }
-
-        .w74 {
-            width: 74%;
-        }
-
-        .w68 {
-            width: 68%;
-        }
-
-        .w79 {
-            width: 79%;
-        }
-
-        /* DETAILS */
 
         .detail-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-bottom: 16px;
         }
 
         .detail-box {
             background: #f8faf8;
             border: 1px solid var(--border);
             border-radius: 11px;
-            padding: 11px;
+            padding: 10px;
+            text-align: center;
         }
-
-            .detail-box span {
-                display: block;
-                color: var(--muted);
-                font-size: 10px;
-                margin-bottom: 4px;
-            }
 
             .detail-box strong {
-                font-size: 12px;
+                display: block;
+                font-size: 13px;
+                margin-bottom: 3px;
             }
 
-        /* ASSESSMENTS */
+            .detail-box span {
+                color: var(--muted);
+                font-size: 10px;
+            }
 
-        .assessment-title {
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .assessment {
+        .module-actions {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
+            gap: 8px;
+            flex-wrap: wrap;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
         }
 
-            .assessment:last-child {
-                border-bottom: none;
+        .action-button {
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text);
+            border-radius: 9px;
+            padding: 8px 11px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .action-button:hover {
+                background: var(--emeris-green-pale);
             }
 
-        .assessment-name h4 {
-            font-size: 12px;
-            margin-bottom: 3px;
+        .delete-button {
+            background: var(--danger-bg);
+            color: var(--danger-text);
+            border-color: #efcbc6;
         }
 
-        .assessment-name p {
-            color: var(--muted);
-            font-size: 10px;
+
+
+        .form-group {
+            margin-bottom: 16px;
         }
 
-        .status {
-            padding: 5px 8px;
-            border-radius: 999px;
-            font-size: 10px;
+            .form-group label {
+                display: block;
+                margin-bottom: 6px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 11px 12px;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                background: #fbfcfb;
+                color: var(--text);
+                font-family: inherit;
+            }
+
+                .form-group input:focus {
+                    outline: none;
+                    border-color: var(--emeris-green);
+                    box-shadow: 0 0 0 3px rgba(159,197,139,0.18);
+                }
+
+        .save-button {
+            width: 100%;
+            border: none;
+            border-radius: 11px;
+            padding: 12px;
+            background: var(--emeris-dark);
+            color: white;
             font-weight: bold;
+            cursor: pointer;
         }
 
-        .complete {
-            background: var(--success-bg);
-            color: var(--success-text);
+        .cancel-button {
+            width: 100%;
+            margin-top: 8px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            padding: 11px;
+            background: white;
+            color: var(--text);
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
         }
 
-        .upcoming {
-            background: var(--warning-bg);
-            color: var(--warning-text);
+        .helper-box {
+            background: var(--emeris-green-pale);
+            border: 1px solid #d9e8d1;
+            border-radius: 14px;
+            padding: 15px;
+            margin-top: 18px;
         }
 
-        @media(max-width: 1100px) {
-            .summary-grid {
+            .helper-box strong {
+                display: block;
+                margin-bottom: 6px;
+            }
+
+            .helper-box p {
+                color: var(--muted);
+                font-size: 12px;
+                line-height: 1.5;
+            }
+
+        .empty-message {
+            color: var(--muted);
+            font-size: 13px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media(max-width: 1200px) {
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+        }
+
+        @media(max-width: 850px) {
 
             .module-grid {
                 grid-template-columns: 1fr;
             }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 760px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
+
 </head>
 
 <body>
@@ -403,11 +526,15 @@
                         U
                     </div>
 
-                    <h1>UniFlow</h1>
+                    <h1>
+                        UniFlow
+                    </h1>
 
                 </div>
 
-                <p>Student command centre</p>
+                <p>
+                    Student command centre
+                </p>
 
             </div>
 
@@ -415,38 +542,49 @@
                 Workspace
             </div>
 
-            <a href="index.html" class="nav-item">
+            <a href="index.html"
+               class="nav-item">
                 <span class="nav-icon">⌂</span>
                 Dashboard
             </a>
 
-            <a href="assignments.html" class="nav-item">
+            <a href="assignments.html"
+               class="nav-item">
                 <span class="nav-icon">▤</span>
                 Assignments
             </a>
 
-            <a href="studyhub.html" class="nav-item">
+            <a href="studyhub.html"
+               class="nav-item">
                 <span class="nav-icon">◫</span>
                 Study Hub
             </a>
 
-            <a href="modules.html" class="nav-item active">
+            <a href="modules.html"
+               class="nav-item active">
                 <span class="nav-icon">▦</span>
                 Modules
             </a>
 
-            <a href="progress.html" class="nav-item">
+            <a href="progress.html"
+               class="nav-item">
                 <span class="nav-icon">◔</span>
                 Progress
             </a>
 
             <div class="student-card">
-                <strong>Student</strong>
-                <span>Year 2 • Academic Dashboard</span>
+
+                <strong>
+                    Student
+                </strong>
+
+                <span>
+                    Year 2 • Academic Dashboard
+                </span>
+
             </div>
 
         </aside>
-
 
         <!-- MAIN -->
 
@@ -456,10 +594,12 @@
 
                 <div class="page-heading">
 
-                    <h2>My Modules</h2>
+                    <h2>
+                        My Modules
+                    </h2>
 
                     <p>
-                        Keep track of your subjects, marks and upcoming assessments.
+                        Add, update and manage the modules that organise your academic work.
                     </p>
 
                 </div>
@@ -470,408 +610,147 @@
 
             </div>
 
-
             <!-- SUMMARY -->
 
             <section class="summary-grid">
 
                 <div class="summary-card">
-                    <strong>4</strong>
-                    <span>Active Modules</span>
+
+                    <strong id="moduleCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Active Modules
+                    </span>
+
                 </div>
 
                 <div class="summary-card">
-                    <strong>76%</strong>
-                    <span>Overall Average</span>
+
+                    <strong id="totalAssignments">
+                        0
+                    </strong>
+
+                    <span>
+                        Total Assignments
+                    </span>
+
                 </div>
 
                 <div class="summary-card">
-                    <strong>9</strong>
-                    <span>Assessments Completed</span>
+
+                    <strong id="completedAssignments">
+                        0
+                    </strong>
+
+                    <span>
+                        Completed Assignments
+                    </span>
+
                 </div>
 
                 <div class="summary-card">
-                    <strong>3</strong>
-                    <span>Upcoming Assessments</span>
+
+                    <strong id="totalEstimatedHours">
+                        0
+                    </strong>
+
+                    <span>
+                        Estimated Work Hours
+                    </span>
+
                 </div>
 
             </section>
 
+            <!-- NEW MODULE BUTTON -->
 
-            <!-- MODULES -->
+            <div class="page-actions">
 
-            <section class="module-grid">
+                <button class="add-main-button"
+                        id="newModuleButton">
+                    + New Module
+                </button>
 
-                <!-- PROGRAMMING -->
+            </div>
 
-                <div class="module-card">
+            <!-- CONTENT -->
 
-                    <div class="module-header">
+            <section class="content-grid">
 
-                        <div class="module-title">
+                <!-- MODULES -->
 
-                            <h3>Programming</h3>
+                <div>
 
-                            <p>
-                                Software development and application logic
-                            </p>
-
-                        </div>
-
-                        <div class="module-code">
-                            PROG6221
-                        </div>
-
-                    </div>
-
-
-                    <div class="mark-row">
-
-                        <div class="mark-label">
-                            Current module mark
-                        </div>
-
-                        <div class="mark">
-                            82%
-                        </div>
-
-                    </div>
-
-                    <div class="progress-track">
-                        <div class="progress-fill w82"></div>
-                    </div>
-
-
-                    <div class="detail-grid">
-
-                        <div class="detail-box">
-                            <span>Lecturer</span>
-                            <strong>Dr. Smith</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Next Class</span>
-                            <strong>Tuesday • 10:00</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="assessment-title">
-                        Assessments
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>ICE Task 2</h4>
-                            <p>15% weighting</p>
-
-                        </div>
-
-                        <span class="status complete">
-                            Complete
-                        </span>
-
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>Programming POE</h4>
-                            <p>35% weighting • Due tomorrow</p>
-
-                        </div>
-
-                        <span class="status upcoming">
-                            Upcoming
-                        </span>
-
-                    </div>
+                    <div class="module-grid"
+                         id="moduleGrid"></div>
 
                 </div>
 
+                <!-- FORM -->
 
-                <!-- DATABASE -->
+                <div>
 
-                <div class="module-card">
+                    <div class="panel"
+                         id="moduleFormPanel">
 
-                    <div class="module-header">
+                        <div class="panel-header">
 
-                        <div class="module-title">
+                            <h3 id="moduleFormHeading">
+                                Add Module
+                            </h3>
 
-                            <h3>Database Development</h3>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Module Code
+                            </label>
+
+                            <input type="text"
+                                   id="moduleCode"
+                                   placeholder="e.g. PROG6221">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Module Name
+                            </label>
+
+                            <input type="text"
+                                   id="moduleName"
+                                   placeholder="e.g. Programming">
+
+                        </div>
+
+                        <button class="save-button"
+                                id="saveModuleButton">
+                            Add Module
+                        </button>
+
+                        <button class="cancel-button"
+                                id="cancelModuleEditButton">
+                            Cancel Edit
+                        </button>
+
+                        <div class="helper-box">
+
+                            <strong>
+                                Modules organise assignments
+                            </strong>
 
                             <p>
-                                Data modelling, SQL and database systems
+                                Assignments are linked to modules.
+                                When you add a new module, it will
+                                automatically become available in
+                                the assignment form.
                             </p>
 
                         </div>
-
-                        <div class="module-code">
-                            DBAS6212
-                        </div>
-
-                    </div>
-
-
-                    <div class="mark-row">
-
-                        <div class="mark-label">
-                            Current module mark
-                        </div>
-
-                        <div class="mark">
-                            74%
-                        </div>
-
-                    </div>
-
-                    <div class="progress-track">
-                        <div class="progress-fill w74"></div>
-                    </div>
-
-
-                    <div class="detail-grid">
-
-                        <div class="detail-box">
-                            <span>Lecturer</span>
-                            <strong>Ms. Daniels</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Next Class</span>
-                            <strong>Wednesday • 08:00</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="assessment-title">
-                        Assessments
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>SQL Practical</h4>
-                            <p>20% weighting</p>
-
-                        </div>
-
-                        <span class="status complete">
-                            Complete
-                        </span>
-
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>Database Assignment</h4>
-                            <p>30% weighting • Due in 3 days</p>
-
-                        </div>
-
-                        <span class="status upcoming">
-                            Upcoming
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- CLOUD -->
-
-                <div class="module-card">
-
-                    <div class="module-header">
-
-                        <div class="module-title">
-
-                            <h3>Cloud Development</h3>
-
-                            <p>
-                                Azure services and cloud-based systems
-                            </p>
-
-                        </div>
-
-                        <div class="module-code">
-                            CLDV6212
-                        </div>
-
-                    </div>
-
-
-                    <div class="mark-row">
-
-                        <div class="mark-label">
-                            Current module mark
-                        </div>
-
-                        <div class="mark">
-                            68%
-                        </div>
-
-                    </div>
-
-                    <div class="progress-track">
-                        <div class="progress-fill w68"></div>
-                    </div>
-
-
-                    <div class="detail-grid">
-
-                        <div class="detail-box">
-                            <span>Lecturer</span>
-                            <strong>Mr. Naidoo</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Next Class</span>
-                            <strong>Thursday • 11:30</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="assessment-title">
-                        Assessments
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>Azure Storage ICE</h4>
-                            <p>10% weighting</p>
-
-                        </div>
-
-                        <span class="status complete">
-                            Complete
-                        </span>
-
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>Cloud Development ICE</h4>
-                            <p>15% weighting • Due in 6 days</p>
-
-                        </div>
-
-                        <span class="status upcoming">
-                            Upcoming
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- SYSTEMS -->
-
-                <div class="module-card">
-
-                    <div class="module-header">
-
-                        <div class="module-title">
-
-                            <h3>Systems Analysis</h3>
-
-                            <p>
-                                Business processes and systems design
-                            </p>
-
-                        </div>
-
-                        <div class="module-code">
-                            INSY6212
-                        </div>
-
-                    </div>
-
-
-                    <div class="mark-row">
-
-                        <div class="mark-label">
-                            Current module mark
-                        </div>
-
-                        <div class="mark">
-                            79%
-                        </div>
-
-                    </div>
-
-                    <div class="progress-track">
-                        <div class="progress-fill w79"></div>
-                    </div>
-
-
-                    <div class="detail-grid">
-
-                        <div class="detail-box">
-                            <span>Lecturer</span>
-                            <strong>Mrs. Jacobs</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Next Class</span>
-                            <strong>Friday • 09:00</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="assessment-title">
-                        Assessments
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>ERD Practical</h4>
-                            <p>20% weighting</p>
-
-                        </div>
-
-                        <span class="status complete">
-                            Complete
-                        </span>
-
-                    </div>
-
-
-                    <div class="assessment">
-
-                        <div class="assessment-name">
-
-                            <h4>Systems Report</h4>
-                            <p>25% weighting • Due next week</p>
-
-                        </div>
-
-                        <span class="status upcoming">
-                            Upcoming
-                        </span>
 
                     </div>
 
@@ -883,5 +762,686 @@
 
     </div>
 
+    <script src="uniflow.js"></script>
+
+    <script>
+
+        loadData();
+
+
+        let editingModuleId =
+            null;
+
+
+        renderModulesPage();
+
+
+      
+
+        function renderModulesPage() {
+
+            const courses =
+                getCourseStats();
+
+
+            renderSummary(
+                courses
+            );
+
+
+            renderModules(
+                courses
+            );
+
+        }
+
+
+      
+
+        function renderSummary(
+            courses
+        ) {
+
+
+            const totalAssignments =
+                courses.reduce(
+
+                    (sum, course) =>
+                        sum +
+                        course.assignments.total,
+
+                    0
+
+                );
+
+
+            const completedAssignments =
+                courses.reduce(
+
+                    (sum, course) =>
+                        sum +
+                        course.assignments.completed,
+
+                    0
+
+                );
+
+
+            const totalHours =
+                courses.reduce(
+
+                    (sum, course) =>
+                        sum +
+                        course.hours.estimated,
+
+                    0
+
+                );
+
+
+            document
+                .getElementById(
+                    "moduleCount"
+                )
+                .textContent =
+                courses.length;
+
+
+            document
+                .getElementById(
+                    "totalAssignments"
+                )
+                .textContent =
+                totalAssignments;
+
+
+            document
+                .getElementById(
+                    "completedAssignments"
+                )
+                .textContent =
+                completedAssignments;
+
+
+            document
+                .getElementById(
+                    "totalEstimatedHours"
+                )
+                .textContent =
+                totalHours.toFixed(1);
+
+        }
+
+
+
+        function renderModules(
+            courses
+        ) {
+
+
+            const container =
+                document.getElementById(
+                    "moduleGrid"
+                );
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                courses.length === 0
+            ) {
+
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No modules added yet.
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+            courses.forEach(
+
+                function (course) {
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        "module-card";
+
+
+                    card.innerHTML = `
+
+                        <div class="module-header">
+
+                            <div class="module-title">
+
+                                <h3>
+                                    ${escapeHTML(
+                        course.name
+                    )}
+                                </h3>
+
+                                <p>
+
+                                    ${course.assignments.remaining}
+                                    assignment(s) remaining
+
+                                </p>
+
+                            </div>
+
+                            <div class="module-code">
+
+                                ${escapeHTML(
+                        course.code
+                    )}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-row">
+
+                            <div class="progress-label">
+
+                                Assignment completion
+
+                            </div>
+
+                            <div class="progress-value">
+
+                                ${course.progress}%
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill"
+                                style="
+                                    width: ${course.progress}%;
+                                "
+                            ></div>
+
+                        </div>
+
+
+                        <div class="detail-grid">
+
+                            <div class="detail-box">
+
+                                <strong>
+                                    ${course.assignments.total}
+                                </strong>
+
+                                <span>
+                                    Assignments
+                                </span>
+
+                            </div>
+
+                            <div class="detail-box">
+
+                                <strong>
+                                    ${course.hours.studied.toFixed(1)}
+                                </strong>
+
+                                <span>
+                                    Hours Studied
+                                </span>
+
+                            </div>
+
+                            <div class="detail-box">
+
+                                <strong>
+                                    ${course.hours.remaining.toFixed(1)}
+                                </strong>
+
+                                <span>
+                                    Hours Remaining
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="module-actions">
+
+                            <button
+                                class="action-button"
+                                onclick="
+                                    editModule(${course.id})
+                                "
+                            >
+                                ✎ Edit
+                            </button>
+
+                            <button
+                                class="
+                                    action-button
+                                    delete-button
+                                "
+                                onclick="
+                                    removeModule(${course.id})
+                                "
+                            >
+                                Delete
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        card
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+   
+
+        document
+            .getElementById(
+                "newModuleButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                function () {
+
+
+                    resetModuleForm();
+
+
+                    document
+                        .getElementById(
+                            "moduleFormPanel"
+                        )
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                }
+
+            );
+
+
+
+        document
+            .getElementById(
+                "saveModuleButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                function () {
+
+
+                    const code =
+                        document
+                            .getElementById(
+                                "moduleCode"
+                            )
+                            .value
+                            .trim();
+
+
+                    const name =
+                        document
+                            .getElementById(
+                                "moduleName"
+                            )
+                            .value
+                            .trim();
+
+
+                    if (
+                        code === "" ||
+                        name === ""
+                    ) {
+
+
+                        alert(
+                            "Please enter both a module code and module name."
+                        );
+
+
+                        return;
+
+                    }
+
+
+                    try {
+
+
+                        if (
+                            editingModuleId
+                        ) {
+
+
+                            handleUpdateCourse(
+
+                                editingModuleId,
+
+                                {
+                                    code,
+                                    name
+                                }
+
+                            );
+
+
+                        }
+                        else {
+
+
+                            handleAddCourse(
+                                code,
+                                name
+                            );
+
+
+                        }
+
+
+                        resetModuleForm();
+
+
+                        renderModulesPage();
+
+
+                    }
+                    catch (error) {
+
+
+                        alert(
+                            error.message
+                        );
+
+
+                    }
+
+                }
+
+            );
+
+
+
+        function editModule(
+            moduleId
+        ) {
+
+
+            const course =
+                getCourse(
+                    moduleId
+                );
+
+
+            if (!course) {
+
+                return;
+
+            }
+
+
+            editingModuleId =
+                course.id;
+
+
+            document
+                .getElementById(
+                    "moduleCode"
+                )
+                .value =
+                course.code;
+
+
+            document
+                .getElementById(
+                    "moduleName"
+                )
+                .value =
+                course.name;
+
+
+            document
+                .getElementById(
+                    "moduleFormHeading"
+                )
+                .textContent =
+                "Edit Module";
+
+
+            document
+                .getElementById(
+                    "saveModuleButton"
+                )
+                .textContent =
+                "Save Changes";
+
+
+            document
+                .getElementById(
+                    "cancelModuleEditButton"
+                )
+                .style
+                .display =
+                "block";
+
+
+            document
+                .getElementById(
+                    "moduleFormPanel"
+                )
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+
+        function removeModule(
+            moduleId
+        ) {
+
+
+            const course =
+                getCourse(
+                    moduleId
+                );
+
+
+            if (!course) {
+
+                return;
+
+            }
+
+
+            const linkedAssignments =
+                getAssignments({
+                    courseId:
+                        moduleId
+                });
+
+
+            let message =
+
+                `Delete "${course.name}"?`;
+
+
+            if (
+                linkedAssignments.length > 0
+            ) {
+
+
+                message +=
+
+                    `\n\nThis module currently contains ${linkedAssignments.length} assignment(s).`;
+
+                message +=
+
+                    "\nDeleting the module will also delete those assignments and their study sessions.";
+
+            }
+
+
+            const confirmed =
+                confirm(
+                    message
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            handleDeleteCourse(
+                moduleId
+            );
+
+
+            if (
+                editingModuleId ===
+                moduleId
+            ) {
+
+                resetModuleForm();
+
+            }
+
+
+            renderModulesPage();
+
+        }
+
+
+       
+
+        function resetModuleForm() {
+
+
+            editingModuleId =
+                null;
+
+
+            document
+                .getElementById(
+                    "moduleCode"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "moduleName"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "moduleFormHeading"
+                )
+                .textContent =
+                "Add Module";
+
+
+            document
+                .getElementById(
+                    "saveModuleButton"
+                )
+                .textContent =
+                "Add Module";
+
+
+            document
+                .getElementById(
+                    "cancelModuleEditButton"
+                )
+                .style
+                .display =
+                "none";
+
+        }
+
+
+       
+
+        document
+            .getElementById(
+                "cancelModuleEditButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                resetModuleForm
+
+            );
+
+
+     
+
+        function escapeHTML(
+            value
+        ) {
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                value ?? "";
+
+
+            return div.innerHTML;
+
+        }
+
+    </script>
+
 </body>
+
 </html>

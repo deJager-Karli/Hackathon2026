@@ -1,12 +1,17 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>UniFlow - Assignments</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +22,6 @@
             --emeris-dark: #234b54;
             --emeris-dark-2: #1b3d45;
             --emeris-green: #9fc58b;
-            --emeris-green-soft: #dcebd2;
             --emeris-green-pale: #eef6e9;
             --background: #f4f7f5;
             --surface: #ffffff;
@@ -45,12 +49,11 @@
             min-height: 100vh;
         }
 
-        /* SIDEBAR */
-
+  
         .sidebar {
             width: 255px;
             min-height: 100vh;
-            background: linear-gradient( 160deg, var(--emeris-dark) 0%, var(--emeris-dark-2) 100% );
+            background: linear-gradient( 160deg, var(--emeris-dark), var(--emeris-dark-2) );
             color: white;
             padding: 28px 20px;
             position: fixed;
@@ -75,10 +78,10 @@
             height: 42px;
             border-radius: 14px;
             background: var(--emeris-green);
+            color: var(--emeris-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--emeris-dark);
             font-size: 24px;
             font-weight: bold;
         }
@@ -134,7 +137,6 @@
             right: 20px;
             bottom: 24px;
             background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.08);
             padding: 15px;
             border-radius: 15px;
         }
@@ -149,7 +151,7 @@
                 font-size: 12px;
             }
 
-        /* MAIN */
+ 
 
         .main {
             margin-left: 255px;
@@ -174,21 +176,6 @@
             font-size: 14px;
         }
 
-        .top-actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .search-box {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 11px 14px;
-            width: 220px;
-            color: var(--muted);
-        }
-
         .profile-circle {
             width: 42px;
             height: 42px;
@@ -201,18 +188,20 @@
             font-weight: bold;
         }
 
-        /* PAGE ACTIONS */
 
         .page-actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 24px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .filters {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .filter-button {
@@ -222,6 +211,7 @@
             border: 1px solid var(--border);
             color: var(--muted);
             font-size: 12px;
+            cursor: pointer;
         }
 
             .filter-button.active {
@@ -240,11 +230,11 @@
             cursor: pointer;
         }
 
-        /* GRID */
+   
 
         .content-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.55fr 1fr;
             gap: 22px;
         }
 
@@ -267,7 +257,7 @@
                 font-size: 18px;
             }
 
-        /* ASSIGNMENT CARDS */
+       
 
         .assignment-card {
             border: 1px solid var(--border);
@@ -277,6 +267,11 @@
             background: #fcfdfc;
         }
 
+            .assignment-card.completed-card {
+                opacity: 0.82;
+                background: #f7faf6;
+            }
+
             .assignment-card:last-child {
                 margin-bottom: 0;
             }
@@ -284,7 +279,8 @@
         .assignment-top {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            align-items: flex-start;
+            gap: 18px;
             margin-bottom: 14px;
         }
 
@@ -319,6 +315,20 @@
         .medium {
             background: var(--success-bg);
             color: var(--success-text);
+        }
+
+        .low {
+            background: #edf1ef;
+            color: var(--muted);
+        }
+
+        .completed-badge {
+            background: var(--success-bg);
+            color: var(--success-text);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: bold;
         }
 
         .assignment-meta {
@@ -366,19 +376,54 @@
             border-radius: 999px;
         }
 
-        .progress-20 {
-            width: 20%;
+
+        .assignment-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
         }
 
-        .progress-40 {
-            width: 40%;
+        .action-button {
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--text);
+            border-radius: 9px;
+            padding: 8px 11px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .progress-55 {
-            width: 55%;
+            .action-button:hover {
+                background: var(--emeris-green-pale);
+            }
+
+        .complete-button {
+            background: var(--emeris-dark);
+            color: white;
+            border-color: var(--emeris-dark);
         }
 
-        /* FORM */
+            .complete-button:hover {
+                background: var(--emeris-dark-2);
+            }
+
+        .undo-button {
+            background: var(--success-bg);
+            color: var(--success-text);
+            border-color: #cfe4c8;
+        }
+
+        .delete-button {
+            color: var(--danger-text);
+            border-color: #efcbc6;
+            background: var(--danger-bg);
+        }
+
+    
 
         .form-group {
             margin-bottom: 16px;
@@ -392,14 +437,29 @@
             }
 
             .form-group input,
-            .form-group select {
+            .form-group select,
+            .form-group textarea {
                 width: 100%;
                 padding: 11px 12px;
                 border: 1px solid var(--border);
                 border-radius: 10px;
                 background: #fbfcfb;
                 color: var(--text);
+                font-family: inherit;
             }
+
+                .form-group input:focus,
+                .form-group select:focus,
+                .form-group textarea:focus {
+                    outline: none;
+                    border-color: var(--emeris-green);
+                    box-shadow: 0 0 0 3px rgba(159,197,139,0.18);
+                }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
 
         .form-row {
             display: grid;
@@ -417,6 +477,19 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 5px;
+        }
+
+        .cancel-edit-button {
+            width: 100%;
+            margin-top: 8px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            padding: 11px;
+            background: white;
+            color: var(--text);
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
         }
 
         .helper-box {
@@ -438,7 +511,15 @@
                 line-height: 1.5;
             }
 
-        @media (max-width: 1050px) {
+        .empty-message {
+            color: var(--muted);
+            text-align: center;
+            padding: 30px 10px;
+            font-size: 13px;
+        }
+
+        @media(max-width: 1050px) {
+
             .content-grid {
                 grid-template-columns: 1fr;
             }
@@ -447,14 +528,38 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
+        @media(max-width: 760px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+            }
+
+            .assignment-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     </style>
+
 </head>
 
 <body>
 
     <div class="app">
 
-        <!-- SIDEBAR -->
+        <!-- =========================================
+             SIDEBAR
+        ========================================== -->
 
         <aside class="sidebar">
 
@@ -466,53 +571,57 @@
                         U
                     </div>
 
-                    <h1>UniFlow</h1>
+                    <h1>
+                        UniFlow
+                    </h1>
 
                 </div>
 
-                <p>Student command centre</p>
+                <p>
+                    Student command centre
+                </p>
 
             </div>
-
 
             <div class="nav-label">
                 Workspace
             </div>
 
-
-            <a href="index.html" class="nav-item">
+            <a href="index.html"
+               class="nav-item">
                 <span class="nav-icon">⌂</span>
                 Dashboard
             </a>
 
-
-            <a href="assignments.html" class="nav-item active">
+            <a href="assignments.html"
+               class="nav-item active">
                 <span class="nav-icon">▤</span>
                 Assignments
             </a>
 
-
-            <a href="studyhub.html" class="nav-item">
+            <a href="studyhub.html"
+               class="nav-item">
                 <span class="nav-icon">◫</span>
                 Study Hub
             </a>
 
-
-            <a href="modules.html" class="nav-item">
+            <a href="modules.html"
+               class="nav-item">
                 <span class="nav-icon">▦</span>
                 Modules
             </a>
 
-
-            <a href="progress.html" class="nav-item">
+            <a href="progress.html"
+               class="nav-item">
                 <span class="nav-icon">◔</span>
                 Progress
             </a>
 
-
             <div class="student-card">
 
-                <strong>Student</strong>
+                <strong>
+                    Student
+                </strong>
 
                 <span>
                     Year 2 • Academic Dashboard
@@ -522,8 +631,9 @@
 
         </aside>
 
-
-        <!-- MAIN -->
+        <!-- =========================================
+             MAIN
+        ========================================== -->
 
         <main class="main">
 
@@ -531,61 +641,56 @@
 
                 <div class="page-heading">
 
-                    <h2>Assignments</h2>
+                    <h2>
+                        Assignments
+                    </h2>
 
                     <p>
-                        Manage your workload and see what deserves attention first.
+                        Manage your workload and decide what deserves attention first.
                     </p>
 
                 </div>
 
-
-                <div class="top-actions">
-
-                    <div class="search-box">
-                        Search assignments...
-                    </div>
-
-                    <div class="profile-circle">
-                        K
-                    </div>
-
+                <div class="profile-circle">
+                    K
                 </div>
 
             </div>
 
-
-            <!-- ACTION BAR -->
+            <!-- FILTERS -->
 
             <div class="page-actions">
 
                 <div class="filters">
 
-                    <div class="filter-button active">
+                    <button class="filter-button active"
+                            data-filter="all">
                         All
-                    </div>
+                    </button>
 
-                    <div class="filter-button">
+                    <button class="filter-button"
+                            data-filter="active">
+                        Active
+                    </button>
+
+                    <button class="filter-button"
+                            data-filter="critical">
                         Critical
-                    </div>
+                    </button>
 
-                    <div class="filter-button">
-                        Upcoming
-                    </div>
-
-                    <div class="filter-button">
+                    <button class="filter-button"
+                            data-filter="completed">
                         Completed
-                    </div>
+                    </button>
 
                 </div>
 
-
-                <button class="add-main-button">
+                <button class="add-main-button"
+                        id="newAssignmentButton">
                     + New Assignment
                 </button>
 
             </div>
-
 
             <!-- CONTENT -->
 
@@ -598,338 +703,36 @@
                     <div class="panel-header">
 
                         <h3>
-                            Current Assignments
+                            Assignments
                         </h3>
 
-                        <span style="font-size: 12px; color: #728086;">
-                            Ordered by priority
+                        <span style="
+                            font-size: 12px;
+                            color: #728086;
+                        ">
+                            Active work is ordered by priority
                         </span>
 
                     </div>
 
-
-                    <!-- ASSIGNMENT 1 -->
-
-                    <div class="assignment-card">
-
-                        <div class="assignment-top">
-
-                            <div class="assignment-title">
-
-                                <h4>
-                                    Programming POE
-                                </h4>
-
-                                <p>
-                                    Programming
-                                </p>
-
-                            </div>
-
-                            <span class="priority-badge critical">
-                                Critical
-                            </span>
-
-                        </div>
-
-
-                        <div class="assignment-meta">
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    Tomorrow
-                                </strong>
-
-                                <span>
-                                    Due
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    35%
-                                </strong>
-
-                                <span>
-                                    Weight
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    8 hrs
-                                </strong>
-
-                                <span>
-                                    Estimated Work
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    91
-                                </strong>
-
-                                <span>
-                                    Priority Score
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="progress-row">
-
-                            <span>
-                                Progress
-                            </span>
-
-                            <span>
-                                20%
-                            </span>
-
-                        </div>
-
-                        <div class="progress-track">
-
-                            <div class="progress-fill progress-20"></div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ASSIGNMENT 2 -->
-
-                    <div class="assignment-card">
-
-                        <div class="assignment-top">
-
-                            <div class="assignment-title">
-
-                                <h4>
-                                    Database Assignment
-                                </h4>
-
-                                <p>
-                                    Database Development
-                                </p>
-
-                            </div>
-
-                            <span class="priority-badge high">
-                                High
-                            </span>
-
-                        </div>
-
-
-                        <div class="assignment-meta">
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    3 days
-                                </strong>
-
-                                <span>
-                                    Due
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    30%
-                                </strong>
-
-                                <span>
-                                    Weight
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    6 hrs
-                                </strong>
-
-                                <span>
-                                    Estimated Work
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    73
-                                </strong>
-
-                                <span>
-                                    Priority Score
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="progress-row">
-
-                            <span>
-                                Progress
-                            </span>
-
-                            <span>
-                                40%
-                            </span>
-
-                        </div>
-
-                        <div class="progress-track">
-
-                            <div class="progress-fill progress-40"></div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ASSIGNMENT 3 -->
-
-                    <div class="assignment-card">
-
-                        <div class="assignment-top">
-
-                            <div class="assignment-title">
-
-                                <h4>
-                                    Cloud Development ICE
-                                </h4>
-
-                                <p>
-                                    Cloud Development
-                                </p>
-
-                            </div>
-
-                            <span class="priority-badge medium">
-                                Medium
-                            </span>
-
-                        </div>
-
-
-                        <div class="assignment-meta">
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    6 days
-                                </strong>
-
-                                <span>
-                                    Due
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    15%
-                                </strong>
-
-                                <span>
-                                    Weight
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    3 hrs
-                                </strong>
-
-                                <span>
-                                    Estimated Work
-                                </span>
-
-                            </div>
-
-
-                            <div class="meta-box">
-
-                                <strong>
-                                    48
-                                </strong>
-
-                                <span>
-                                    Priority Score
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="progress-row">
-
-                            <span>
-                                Progress
-                            </span>
-
-                            <span>
-                                55%
-                            </span>
-
-                        </div>
-
-                        <div class="progress-track">
-
-                            <div class="progress-fill progress-55"></div>
-
-                        </div>
-
-                    </div>
+                    <div id="assignmentList"></div>
 
                 </div>
-
 
                 <!-- RIGHT -->
 
                 <div>
 
-                    <div class="panel">
+                    <div class="panel"
+                         id="assignmentFormPanel">
 
                         <div class="panel-header">
 
-                            <h3>
+                            <h3 id="formHeading">
                                 Add Assignment
                             </h3>
 
                         </div>
-
 
                         <div class="form-group">
 
@@ -938,10 +741,10 @@
                             </label>
 
                             <input type="text"
+                                   id="assignmentName"
                                    placeholder="e.g. Programming POE">
 
                         </div>
-
 
                         <div class="form-group">
 
@@ -949,28 +752,15 @@
                                 Module
                             </label>
 
-                            <select>
+                            <select id="assignmentCourse">
 
-                                <option>
+                                <option value="">
                                     Select module
-                                </option>
-
-                                <option>
-                                    Programming
-                                </option>
-
-                                <option>
-                                    Database Development
-                                </option>
-
-                                <option>
-                                    Cloud Development
                                 </option>
 
                             </select>
 
                         </div>
-
 
                         <div class="form-group">
 
@@ -978,10 +768,10 @@
                                 Due Date
                             </label>
 
-                            <input type="date">
+                            <input type="date"
+                                   id="assignmentDueDate">
 
                         </div>
-
 
                         <div class="form-row">
 
@@ -992,10 +782,12 @@
                                 </label>
 
                                 <input type="number"
+                                       id="assignmentWeight"
+                                       min="0"
+                                       max="100"
                                        placeholder="35">
 
                             </div>
-
 
                             <div class="form-group">
 
@@ -1004,41 +796,72 @@
                                 </label>
 
                                 <input type="number"
+                                       id="assignmentHours"
+                                       min="0.1"
+                                       step="0.1"
                                        placeholder="8">
 
                             </div>
 
                         </div>
 
+                        <div class="form-group">
+
+                            <label>
+                                Priority
+                            </label>
+
+                            <select id="assignmentPriority">
+
+                                <option value="low">
+                                    Low
+                                </option>
+
+                                <option value="medium"
+                                        selected>
+                                    Medium
+                                </option>
+
+                                <option value="high">
+                                    High
+                                </option>
+
+                            </select>
+
+                        </div>
 
                         <div class="form-group">
 
                             <label>
-                                Current Progress %
+                                Description
                             </label>
 
-                            <input type="number"
-                                   placeholder="20">
+                            <textarea id="assignmentDescription"
+                                      placeholder="Optional notes about this assignment"></textarea>
 
                         </div>
 
-
-                        <button class="add-button">
+                        <button class="add-button"
+                                id="saveAssignmentButton">
                             Add Assignment
                         </button>
 
+                        <button class="cancel-edit-button"
+                                id="cancelEditButton">
+                            Cancel Edit
+                        </button>
 
                         <div class="helper-box">
 
                             <strong>
-                                How prioritisation works
+                                How completion works
                             </strong>
 
                             <p>
-                                UniFlow will eventually consider deadline,
-                                academic weighting, estimated workload and
-                                current progress to determine what should
-                                receive attention first.
+                                Study time updates your progress,
+                                but an assignment is only marked
+                                completed when you explicitly choose
+                                Mark Complete.
                             </p>
 
                         </div>
@@ -1053,5 +876,1347 @@
 
     </div>
 
+    <script src="uniflow.js"></script>
+
+    <script>
+
+        loadData();
+
+
+        let editingAssignmentId =
+            null;
+
+
+        let currentFilter =
+            "all";
+
+
+        populateCourseDropdown();
+
+        renderAssignments();
+
+
+
+        function populateCourseDropdown() {
+
+            const select =
+                document.getElementById(
+                    "assignmentCourse"
+                );
+
+
+            const selectedValue =
+                select.value;
+
+
+            select.innerHTML = `
+
+                <option value="">
+                    Select module
+                </option>
+
+            `;
+
+
+            const courses =
+                getCourses();
+
+
+            courses.forEach(
+
+                function (course) {
+
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        course.id;
+
+
+                    option.textContent =
+                        course.code +
+                        " - " +
+                        course.name;
+
+
+                    select.appendChild(
+                        option
+                    );
+
+                }
+
+            );
+
+
+            if (selectedValue) {
+
+                select.value =
+                    selectedValue;
+
+            }
+
+        }
+
+
+        document
+            .getElementById(
+                "newAssignmentButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                function () {
+
+                    resetAssignmentForm();
+
+
+                    document
+                        .getElementById(
+                            "assignmentFormPanel"
+                        )
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                }
+
+            );
+
+
+
+        document
+            .getElementById(
+                "saveAssignmentButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                function () {
+
+
+                    const data =
+                        getFormData();
+
+
+                    if (!data) {
+
+                        return;
+
+                    }
+
+
+                    try {
+
+
+                        if (
+                            editingAssignmentId
+                        ) {
+
+
+                            handleUpdateAssignment(
+
+                                editingAssignmentId,
+
+                                data
+
+                            );
+
+
+                        }
+                        else {
+
+
+                            handleAddAssignment(
+                                data
+                            );
+
+
+                        }
+
+
+                        resetAssignmentForm();
+
+
+                        renderAssignments();
+
+
+                    }
+                    catch (error) {
+
+
+                        alert(
+                            error.message
+                        );
+
+
+                    }
+
+                }
+
+            );
+
+
+        
+
+        function getFormData() {
+
+
+            const name =
+                document
+                    .getElementById(
+                        "assignmentName"
+                    )
+                    .value
+                    .trim();
+
+
+            const courseId =
+                Number(
+
+                    document
+                        .getElementById(
+                            "assignmentCourse"
+                        )
+                        .value
+
+                );
+
+
+            const dueDate =
+                document
+                    .getElementById(
+                        "assignmentDueDate"
+                    )
+                    .value;
+
+
+            const weight =
+                Number(
+
+                    document
+                        .getElementById(
+                            "assignmentWeight"
+                        )
+                        .value
+
+                );
+
+
+            const estimatedHours =
+                Number(
+
+                    document
+                        .getElementById(
+                            "assignmentHours"
+                        )
+                        .value
+
+                );
+
+
+            const priority =
+                document
+                    .getElementById(
+                        "assignmentPriority"
+                    )
+                    .value;
+
+
+            const description =
+                document
+                    .getElementById(
+                        "assignmentDescription"
+                    )
+                    .value
+                    .trim();
+
+
+            if (
+                name === "" ||
+                !courseId ||
+                dueDate === ""
+            ) {
+
+                alert(
+                    "Please complete the assignment name, module and due date."
+                );
+
+                return null;
+
+            }
+
+
+            if (
+                weight < 0 ||
+                weight > 100
+            ) {
+
+                alert(
+                    "Weighting must be between 0 and 100."
+                );
+
+                return null;
+
+            }
+
+
+            if (
+                !estimatedHours ||
+                estimatedHours <= 0
+            ) {
+
+                alert(
+                    "Estimated hours must be greater than 0."
+                );
+
+                return null;
+
+            }
+
+
+            return {
+
+                name,
+                courseId,
+                dueDate,
+                weight,
+                estimatedHours,
+                priority,
+                description
+
+            };
+
+        }
+
+
+ 
+
+        function resetAssignmentForm() {
+
+
+            editingAssignmentId =
+                null;
+
+
+            document
+                .getElementById(
+                    "formHeading"
+                )
+                .textContent =
+                "Add Assignment";
+
+
+            document
+                .getElementById(
+                    "saveAssignmentButton"
+                )
+                .textContent =
+                "Add Assignment";
+
+
+            document
+                .getElementById(
+                    "cancelEditButton"
+                )
+                .style
+                .display =
+                "none";
+
+
+            document
+                .getElementById(
+                    "assignmentName"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "assignmentCourse"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "assignmentDueDate"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "assignmentWeight"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "assignmentHours"
+                )
+                .value =
+                "";
+
+
+            document
+                .getElementById(
+                    "assignmentPriority"
+                )
+                .value =
+                "medium";
+
+
+            document
+                .getElementById(
+                    "assignmentDescription"
+                )
+                .value =
+                "";
+
+        }
+
+
+
+        document
+            .getElementById(
+                "cancelEditButton"
+            )
+            .addEventListener(
+
+                "click",
+
+                resetAssignmentForm
+
+            );
+
+
+
+        function editAssignment(
+            assignmentId
+        ) {
+
+
+            const assignment =
+                getAssignment(
+                    assignmentId
+                );
+
+
+            if (!assignment) {
+
+                return;
+
+            }
+
+
+            editingAssignmentId =
+                assignment.id;
+
+
+            populateCourseDropdown();
+
+
+            document
+                .getElementById(
+                    "assignmentName"
+                )
+                .value =
+                assignment.name;
+
+
+            document
+                .getElementById(
+                    "assignmentCourse"
+                )
+                .value =
+                assignment.courseId;
+
+
+            document
+                .getElementById(
+                    "assignmentDueDate"
+                )
+                .value =
+                assignment.dueDate;
+
+
+            document
+                .getElementById(
+                    "assignmentWeight"
+                )
+                .value =
+                assignment.weight;
+
+
+            document
+                .getElementById(
+                    "assignmentHours"
+                )
+                .value =
+                assignment.estimatedHours;
+
+
+            document
+                .getElementById(
+                    "assignmentPriority"
+                )
+                .value =
+                assignment.priority;
+
+
+            document
+                .getElementById(
+                    "assignmentDescription"
+                )
+                .value =
+                assignment.description || "";
+
+
+            document
+                .getElementById(
+                    "formHeading"
+                )
+                .textContent =
+                "Edit Assignment";
+
+
+            document
+                .getElementById(
+                    "saveAssignmentButton"
+                )
+                .textContent =
+                "Save Changes";
+
+
+            document
+                .getElementById(
+                    "cancelEditButton"
+                )
+                .style
+                .display =
+                "block";
+
+
+            document
+                .getElementById(
+                    "assignmentFormPanel"
+                )
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }
+
+
+
+        function removeAssignment(
+            assignmentId
+        ) {
+
+
+            const assignment =
+                getAssignment(
+                    assignmentId
+                );
+
+
+            if (!assignment) {
+
+                return;
+
+            }
+
+
+            const confirmed =
+                confirm(
+
+                    `Delete "${assignment.name}"?\n\nIts study sessions will also be removed.`
+
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            handleDeleteAssignment(
+                assignmentId
+            );
+
+
+            if (
+                editingAssignmentId ===
+                assignmentId
+            ) {
+
+                resetAssignmentForm();
+
+            }
+
+
+            renderAssignments();
+
+        }
+
+
+
+        function completeAssignment(
+            assignmentId
+        ) {
+
+
+            const assignment =
+                getAssignment(
+                    assignmentId
+                );
+
+
+            if (!assignment) {
+
+                return;
+
+            }
+
+
+            const confirmed =
+                confirm(
+
+                    `Mark "${assignment.name}" as completed?`
+
+                );
+
+
+            if (!confirmed) {
+
+                return;
+
+            }
+
+
+            handleMarkComplete(
+                assignmentId
+            );
+
+
+            renderAssignments();
+
+        }
+
+
+       
+
+        function undoComplete(
+            assignmentId
+        ) {
+
+
+            handleMarkIncomplete(
+                assignmentId
+            );
+
+
+            renderAssignments();
+
+        }
+
+
+      
+
+        document
+            .querySelectorAll(
+                ".filter-button"
+            )
+            .forEach(
+
+                function (button) {
+
+
+                    button.addEventListener(
+
+                        "click",
+
+                        function () {
+
+
+                            document
+                                .querySelectorAll(
+                                    ".filter-button"
+                                )
+                                .forEach(
+
+                                    item =>
+                                        item.classList.remove(
+                                            "active"
+                                        )
+
+                                );
+
+
+                            button
+                                .classList
+                                .add(
+                                    "active"
+                                );
+
+
+                            currentFilter =
+                                button.dataset.filter;
+
+
+                            renderAssignments();
+
+                        }
+
+                    );
+
+
+                }
+
+            );
+
+
+
+        function renderAssignments() {
+
+
+            populateCourseDropdown();
+
+
+            const container =
+                document.getElementById(
+                    "assignmentList"
+                );
+
+
+            let assignments =
+                buildAssignmentList();
+
+
+            if (
+                currentFilter === "active"
+            ) {
+
+                assignments =
+                    assignments.filter(
+
+                        assignment =>
+                            assignment.status !==
+                            "completed"
+
+                    );
+
+            }
+
+
+            if (
+                currentFilter === "completed"
+            ) {
+
+                assignments =
+                    assignments.filter(
+
+                        assignment =>
+                            assignment.status ===
+                            "completed"
+
+                    );
+
+            }
+
+
+            if (
+                currentFilter === "critical"
+            ) {
+
+                assignments =
+                    assignments.filter(
+
+                        assignment =>
+                            assignment.status !==
+                            "completed" &&
+
+                            assignment.priorityScore >=
+                            75
+
+                    );
+
+            }
+
+
+            container.innerHTML =
+                "";
+
+
+            if (
+                assignments.length === 0
+            ) {
+
+
+                container.innerHTML = `
+
+                    <div class="empty-message">
+
+                        No assignments to display.
+
+                    </div>
+
+                `;
+
+
+                return;
+
+            }
+
+
+            assignments.forEach(
+
+                function (assignment) {
+
+
+                    const progress =
+                        getAssignmentProgress(
+                            assignment.id
+                        );
+
+
+                    const course =
+                        getCourse(
+                            assignment.courseId
+                        );
+
+
+                    const completed =
+                        assignment.status ===
+                        "completed";
+
+
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    card.className =
+                        completed
+
+                            ?
+
+                            "assignment-card completed-card"
+
+                            :
+
+                            "assignment-card";
+
+
+                    let topBadge;
+
+
+                    if (completed) {
+
+
+                        topBadge = `
+
+                            <span class="completed-badge">
+
+                                Completed
+
+                            </span>
+
+                        `;
+
+
+                    }
+                    else {
+
+
+                        const priorityDisplay =
+                            getPriorityDisplay(
+                                assignment.priorityScore
+                            );
+
+
+                        topBadge = `
+
+                            <span
+                                class="
+                                    priority-badge
+                                    ${priorityDisplay.className}
+                                "
+                            >
+
+                                ${priorityDisplay.text}
+
+                            </span>
+
+                        `;
+
+
+                    }
+
+
+                    const statusAction =
+                        completed
+
+                            ?
+
+                            `
+
+                            <button
+                                class="
+                                    action-button
+                                    undo-button
+                                "
+                                onclick="
+                                    undoComplete(${assignment.id})
+                                "
+                            >
+                                ↶ Mark Incomplete
+                            </button>
+
+                            `
+
+                            :
+
+                            `
+
+                            <button
+                                class="
+                                    action-button
+                                    complete-button
+                                "
+                                onclick="
+                                    completeAssignment(${assignment.id})
+                                "
+                            >
+                                ✓ Mark Complete
+                            </button>
+
+                            `;
+
+
+                    card.innerHTML = `
+
+                        <div class="assignment-top">
+
+                            <div class="assignment-title">
+
+                                <h4>
+                                    ${escapeHTML(
+                        assignment.name
+                    )}
+                                </h4>
+
+                                <p>
+
+                                    ${course
+                            ?
+                            escapeHTML(
+                                course.code +
+                                " • " +
+                                course.name
+                            )
+                            :
+                            "No module"
+                        }
+
+                                    •
+                                    ${formatStatus(
+                            assignment.status
+                        )}
+
+                                </p>
+
+                            </div>
+
+                            ${topBadge}
+
+                        </div>
+
+
+                        <div class="assignment-meta">
+
+                            <div class="meta-box">
+
+                                <strong>
+                                    ${formatDueDate(
+                            assignment.daysUntilDue
+                        )}
+                                </strong>
+
+                                <span>
+                                    Due
+                                </span>
+
+                            </div>
+
+                            <div class="meta-box">
+
+                                <strong>
+                                    ${assignment.weight}%
+                                </strong>
+
+                                <span>
+                                    Weight
+                                </span>
+
+                            </div>
+
+                            <div class="meta-box">
+
+                                <strong>
+                                    ${assignment.estimatedHours} hrs
+                                </strong>
+
+                                <span>
+                                    Estimated Work
+                                </span>
+
+                            </div>
+
+                            <div class="meta-box">
+
+                                <strong>
+                                    ${completed
+                            ?
+                            "—"
+                            :
+                            assignment.priorityScore
+                        }
+                                </strong>
+
+                                <span>
+                                    Priority Score
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-row">
+
+                            <span>
+                                Study Progress
+                            </span>
+
+                            <span>
+                                ${progress}%
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-fill"
+                                style="
+                                    width: ${progress}%;
+                                "
+                            ></div>
+
+                        </div>
+
+
+                        <div class="assignment-actions">
+
+                            ${statusAction}
+
+                            <button
+                                class="action-button"
+                                onclick="
+                                    editAssignment(${assignment.id})
+                                "
+                            >
+                                ✎ Edit
+                            </button>
+
+                            <button
+                                class="
+                                    action-button
+                                    delete-button
+                                "
+                                onclick="
+                                    removeAssignment(${assignment.id})
+                                "
+                            >
+                                Delete
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        card
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+
+
+        function buildAssignmentList() {
+
+
+            const active =
+                getPrioritizedAssignments();
+
+
+            const activeIds =
+                new Set(
+
+                    active.map(
+
+                        assignment =>
+                            assignment.id
+
+                    )
+
+                );
+
+
+            const completed =
+                state.assignments
+
+                    .filter(
+
+                        assignment =>
+                            !activeIds.has(
+                                assignment.id
+                            )
+
+                    )
+
+                    .map(
+
+                        assignment => {
+
+                            return {
+
+                                ...assignment,
+
+                                course:
+                                    getCourse(
+                                        assignment.courseId
+                                    ),
+
+                                daysUntilDue:
+                                    getDaysUntilDue(
+                                        assignment.dueDate
+                                    ),
+
+                                priorityScore:
+                                    -1,
+
+                                progress:
+                                    getAssignmentProgress(
+                                        assignment.id
+                                    )
+
+                            };
+
+                        }
+
+                    );
+
+
+            return [
+
+                ...active,
+
+                ...completed
+
+            ];
+
+        }
+
+
+  
+
+        function getPriorityDisplay(
+            score
+        ) {
+
+
+            if (
+                score >= 75
+            ) {
+
+                return {
+
+                    text:
+                        "Critical",
+
+                    className:
+                        "critical"
+
+                };
+
+            }
+
+
+            if (
+                score >= 50
+            ) {
+
+                return {
+
+                    text:
+                        "High",
+
+                    className:
+                        "high"
+
+                };
+
+            }
+
+
+            if (
+                score >= 25
+            ) {
+
+                return {
+
+                    text:
+                        "Medium",
+
+                    className:
+                        "medium"
+
+                };
+
+            }
+
+
+            return {
+
+                text:
+                    "Low",
+
+                className:
+                    "low"
+
+            };
+
+        }
+
+
+        function formatDueDate(
+            days
+        ) {
+
+
+            if (
+                days < 0
+            ) {
+
+                return (
+                    Math.abs(days) +
+                    "d overdue"
+                );
+
+            }
+
+
+            if (
+                days === 0
+            ) {
+
+                return "Today";
+
+            }
+
+
+            if (
+                days === 1
+            ) {
+
+                return "Tomorrow";
+
+            }
+
+
+            return (
+                days +
+                " days"
+            );
+
+        }
+
+
+        function formatStatus(
+            status
+        ) {
+
+
+            if (
+                status === "completed"
+            ) {
+
+                return "Completed";
+
+            }
+
+
+            if (
+                status === "in-progress"
+            ) {
+
+                return "In Progress";
+
+            }
+
+
+            return "Pending";
+
+        }
+
+
+
+
+        function escapeHTML(
+            value
+        ) {
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                value ?? "";
+
+
+            return div.innerHTML;
+
+        }
+
+    </script>
+
 </body>
+
 </html>
