@@ -1,0 +1,1050 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UniFlow - Progress</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --emeris-dark: #234b54;
+            --emeris-dark-2: #1b3d45;
+            --emeris-green: #9fc58b;
+            --emeris-green-soft: #dcebd2;
+            --emeris-green-pale: #eef6e9;
+            --background: #f4f7f5;
+            --surface: #ffffff;
+            --text: #183038;
+            --muted: #728086;
+            --border: #dfe7e2;
+            --danger-bg: #fde6e3;
+            --danger-text: #a23b32;
+            --warning-bg: #fff0d8;
+            --warning-text: #9b651e;
+            --success-bg: #e4f2dc;
+            --success-text: #4e7c42;
+            --shadow: 0 10px 30px rgba(31, 63, 71, 0.08);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* SIDEBAR */
+
+        .sidebar {
+            width: 255px;
+            min-height: 100vh;
+            background: linear-gradient( 160deg, var(--emeris-dark), var(--emeris-dark-2) );
+            color: white;
+            padding: 28px 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .brand {
+            margin-bottom: 40px;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: var(--emeris-green);
+            color: var(--emeris-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .brand h1 {
+            font-size: 25px;
+        }
+
+        .brand p {
+            color: #c7d7d2;
+            font-size: 12px;
+            margin-left: 52px;
+        }
+
+        .nav-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            color: #92aaa4;
+            margin: 25px 10px 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 14px;
+            margin-bottom: 7px;
+            border-radius: 12px;
+            color: #e8f0ed;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+            .nav-item:hover {
+                background: rgba(255,255,255,0.08);
+            }
+
+            .nav-item.active {
+                background: var(--emeris-green);
+                color: var(--emeris-dark);
+                font-weight: bold;
+            }
+
+        .nav-icon {
+            width: 22px;
+            text-align: center;
+        }
+
+        .student-card {
+            position: absolute;
+            bottom: 24px;
+            left: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.08);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+            .student-card strong {
+                display: block;
+                margin-bottom: 3px;
+            }
+
+            .student-card span {
+                color: #c7d7d2;
+                font-size: 12px;
+            }
+
+        /* MAIN */
+
+        .main {
+            margin-left: 255px;
+            width: calc(100% - 255px);
+            padding: 32px 38px 45px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .page-heading h2 {
+            font-size: 30px;
+            margin-bottom: 6px;
+        }
+
+        .page-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .profile-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--emeris-dark);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* SUMMARY */
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .summary-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+            .summary-card .icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                background: var(--emeris-green-pale);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 15px;
+                font-size: 18px;
+            }
+
+            .summary-card strong {
+                display: block;
+                font-size: 28px;
+                margin-bottom: 5px;
+            }
+
+            .summary-card span {
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+        /* MAIN GRID */
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 22px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+
+            .panel + .panel {
+                margin-top: 22px;
+            }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .panel-header h3 {
+                font-size: 18px;
+            }
+
+            .panel-header span {
+                color: var(--muted);
+                font-size: 12px;
+            }
+
+        /* MODULE PROGRESS */
+
+        .module-progress {
+            margin-bottom: 22px;
+        }
+
+            .module-progress:last-child {
+                margin-bottom: 0;
+            }
+
+        .module-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 8px;
+        }
+
+        .module-info h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .module-info p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .module-mark {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .progress-track {
+            height: 9px;
+            border-radius: 999px;
+            background: #edf1ef;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--emeris-green);
+            border-radius: 999px;
+        }
+
+        .w82 {
+            width: 82%;
+        }
+
+        .w74 {
+            width: 74%;
+        }
+
+        .w68 {
+            width: 68%;
+        }
+
+        .w79 {
+            width: 79%;
+        }
+
+        /* WORKLOAD */
+
+        .workload-card {
+            background: var(--emeris-green-pale);
+            border: 1px solid #d8e8d2;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+            .workload-card h4 {
+                font-size: 17px;
+                margin-bottom: 7px;
+            }
+
+            .workload-card p {
+                color: var(--muted);
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+        .workload-status {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: var(--warning-bg);
+            color: var(--warning-text);
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* WEEKLY ACTIVITY */
+
+        .activity-chart {
+            display: flex;
+            align-items: end;
+            gap: 11px;
+            height: 180px;
+            padding-top: 15px;
+        }
+
+        .bar-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+        }
+
+        .bar {
+            width: 70%;
+            max-width: 42px;
+            background: var(--emeris-green);
+            border-radius: 8px 8px 3px 3px;
+        }
+
+        .h35 {
+            height: 35%;
+        }
+
+        .h65 {
+            height: 65%;
+        }
+
+        .h50 {
+            height: 50%;
+        }
+
+        .h80 {
+            height: 80%;
+        }
+
+        .h60 {
+            height: 60%;
+        }
+
+        .h90 {
+            height: 90%;
+        }
+
+        .h45 {
+            height: 45%;
+        }
+
+        .day {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* COMPLETION */
+
+        .completion-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+            .completion-row:last-child {
+                border-bottom: none;
+            }
+
+        .completion-info h4 {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .completion-info p {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .completion-badge {
+            align-self: center;
+            padding: 6px 9px;
+            border-radius: 999px;
+            background: var(--success-bg);
+            color: var(--success-text);
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* GOALS */
+
+        .goal {
+            background: #f8faf8;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+            .goal:last-child {
+                margin-bottom: 0;
+            }
+
+        .goal-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 9px;
+        }
+
+            .goal-top h4 {
+                font-size: 13px;
+            }
+
+            .goal-top span {
+                font-size: 11px;
+                color: var(--muted);
+            }
+
+        @media(max-width: 1100px) {
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-mark">
+
+                    <div class="brand-icon">
+                        U
+                    </div>
+
+                    <h1>UniFlow</h1>
+
+                </div>
+
+                <p>Student command centre</p>
+
+            </div>
+
+
+            <div class="nav-label">
+                Workspace
+            </div>
+
+
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                Dashboard
+            </a>
+
+
+            <a href="assignments.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                Assignments
+            </a>
+
+
+            <a href="studyhub.html" class="nav-item">
+                <span class="nav-icon">◫</span>
+                Study Hub
+            </a>
+
+
+            <a href="modules.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                Modules
+            </a>
+
+
+            <a href="progress.html" class="nav-item active">
+                <span class="nav-icon">◔</span>
+                Progress
+            </a>
+
+
+            <div class="student-card">
+
+                <strong>
+                    Student
+                </strong>
+
+                <span>
+                    Year 2 • Academic Dashboard
+                </span>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+
+        <main class="main">
+
+            <div class="topbar">
+
+                <div class="page-heading">
+
+                    <h2>
+                        Progress
+                    </h2>
+
+                    <p>
+                        See how you're performing across your modules and workload.
+                    </p>
+
+                </div>
+
+                <div class="profile-circle">
+                    K
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <section class="summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="icon">
+                        ◔
+                    </div>
+
+                    <strong>
+                        76%
+                    </strong>
+
+                    <span>
+                        Overall Average
+                    </span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="icon">
+                        ✓
+                    </div>
+
+                    <strong>
+                        9
+                    </strong>
+
+                    <span>
+                        Tasks Completed
+                    </span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="icon">
+                        ▤
+                    </div>
+
+                    <strong>
+                        6
+                    </strong>
+
+                    <span>
+                        Active Assignments
+                    </span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="icon">
+                        ◫
+                    </div>
+
+                    <strong>
+                        68%
+                    </strong>
+
+                    <span>
+                        Study Progress
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- GRID -->
+
+            <section class="progress-grid">
+
+                <!-- LEFT -->
+
+                <div>
+
+                    <!-- MODULE PERFORMANCE -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Module Performance
+                            </h3>
+
+                            <span>
+                                Current marks
+                            </span>
+
+                        </div>
+
+
+                        <div class="module-progress">
+
+                            <div class="module-row">
+
+                                <div class="module-info">
+
+                                    <h4>
+                                        Programming
+                                    </h4>
+
+                                    <p>
+                                        PROG6221
+                                    </p>
+
+                                </div>
+
+                                <div class="module-mark">
+                                    82%
+                                </div>
+
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill w82"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="module-progress">
+
+                            <div class="module-row">
+
+                                <div class="module-info">
+
+                                    <h4>
+                                        Systems Analysis
+                                    </h4>
+
+                                    <p>
+                                        INSY6212
+                                    </p>
+
+                                </div>
+
+                                <div class="module-mark">
+                                    79%
+                                </div>
+
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill w79"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="module-progress">
+
+                            <div class="module-row">
+
+                                <div class="module-info">
+
+                                    <h4>
+                                        Database Development
+                                    </h4>
+
+                                    <p>
+                                        DBAS6212
+                                    </p>
+
+                                </div>
+
+                                <div class="module-mark">
+                                    74%
+                                </div>
+
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill w74"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="module-progress">
+
+                            <div class="module-row">
+
+                                <div class="module-info">
+
+                                    <h4>
+                                        Cloud Development
+                                    </h4>
+
+                                    <p>
+                                        CLDV6212
+                                    </p>
+
+                                </div>
+
+                                <div class="module-mark">
+                                    68%
+                                </div>
+
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill w68"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WEEKLY ACTIVITY -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Weekly Study Activity
+                            </h3>
+
+                            <span>
+                                Hours studied
+                            </span>
+
+                        </div>
+
+
+                        <div class="activity-chart">
+
+                            <div class="bar-column">
+                                <div class="bar h35"></div>
+                                <div class="day">Mon</div>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar h65"></div>
+                                <div class="day">Tue</div>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar h50"></div>
+                                <div class="day">Wed</div>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar h80"></div>
+                                <div class="day">Thu</div>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar h60"></div>
+                                <div class="day">Fri</div>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar h90"></div>
+                                <div class="day">Sat</div>
+                            </div>
+
+                            <div class="bar-column">
+                                <div class="bar h45"></div>
+                                <div class="day">Sun</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div>
+
+                    <!-- WORKLOAD -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Workload Status
+                            </h3>
+
+                        </div>
+
+                        <div class="workload-card">
+
+                            <h4>
+                                Busy week ahead
+                            </h4>
+
+                            <p>
+                                You currently have several active assessments,
+                                including one high-weight assignment due very soon.
+                                Your workload is manageable, but your top priorities
+                                should receive attention first.
+                            </p>
+
+                            <span class="workload-status">
+                                Moderate Pressure
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RECENT COMPLETIONS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Recently Completed
+                            </h3>
+
+                        </div>
+
+
+                        <div class="completion-row">
+
+                            <div class="completion-info">
+
+                                <h4>
+                                    SQL Practical
+                                </h4>
+
+                                <p>
+                                    Database Development
+                                </p>
+
+                            </div>
+
+                            <span class="completion-badge">
+                                Done
+                            </span>
+
+                        </div>
+
+
+                        <div class="completion-row">
+
+                            <div class="completion-info">
+
+                                <h4>
+                                    Azure Storage ICE
+                                </h4>
+
+                                <p>
+                                    Cloud Development
+                                </p>
+
+                            </div>
+
+                            <span class="completion-badge">
+                                Done
+                            </span>
+
+                        </div>
+
+
+                        <div class="completion-row">
+
+                            <div class="completion-info">
+
+                                <h4>
+                                    ERD Practical
+                                </h4>
+
+                                <p>
+                                    Systems Analysis
+                                </p>
+
+                            </div>
+
+                            <span class="completion-badge">
+                                Done
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GOALS -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Academic Goals
+                            </h3>
+
+                        </div>
+
+
+                        <div class="goal">
+
+                            <div class="goal-top">
+
+                                <h4>
+                                    Maintain 75% average
+                                </h4>
+
+                                <span>
+                                    76%
+                                </span>
+
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill w79"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="goal">
+
+                            <div class="goal-top">
+
+                                <h4>
+                                    Complete weekly study plan
+                                </h4>
+
+                                <span>
+                                    68%
+                                </span>
+
+                            </div>
+
+                            <div class="progress-track">
+                                <div class="progress-fill w68"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
